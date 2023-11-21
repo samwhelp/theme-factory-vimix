@@ -1,17 +1,12 @@
 
 
 ################################################################################
-### Head: Master / Util / Init
+### Head: Master / Sys / Theme
 ##
 
 
-##
-## Load: Master / Util / Theme
-##
-
-. "${THE_MAIN_EXT_MASTER_UTIL_DIR_PATH}/theme.sh"
 
 
 ##
-### Tail: Master / Util / Init
+### Tail: Master / Sys / Theme
 ################################################################################

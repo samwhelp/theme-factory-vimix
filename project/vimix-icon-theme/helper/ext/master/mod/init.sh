@@ -6,5 +6,12 @@
 
 
 ##
+## Load: Master / Mod / Theme
+##
+
+. "${THE_MAIN_EXT_MASTER_MOD_DIR_PATH}/theme.sh"
+
+
+##
 ### Tail: Master / Mod / Init
 ################################################################################
