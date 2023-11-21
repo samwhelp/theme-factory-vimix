@@ -1,7 +1,7 @@
 
 
 ################################################################################
-### Head: Master / Util / Theme
+### Head: Master / Util / Theme / StrCase
 ##
 
 util_str_case_same () {
@@ -28,5 +28,5 @@ util_str_case_upper_fc_only () {
 }
 
 ##
-### Tail: Master / Util / Theme
+### Tail: Master / Util / Theme / StrCase
 ################################################################################
