@@ -1,3 +1,12 @@
 [submodule "project/vimix-gtk-theme/asset/vimix-gtk-theme"]
 	path = project/vimix-gtk-theme/asset/vimix-gtk-theme
 	url = https://github.com/vinceliuice/vimix-gtk-themes.git
+[submodule "project/vimix-kde-theme/asset/vimix-kde-theme"]
+	path = project/vimix-kde-theme/asset/vimix-kde-theme
+	url = https://github.com/vinceliuice/vimix-kde.git
+[submodule "project/vimix-icon-theme/asset/vimix-icon-theme"]
+	path = project/vimix-icon-theme/asset/vimix-icon-theme
+	url = https://github.com/vinceliuice/vimix-icon-theme.git
+[submodule "project/vimix-cursor-theme/asset/vimix-cursor-theme"]
+	path = project/vimix-cursor-theme/asset/vimix-cursor-theme
+	url = https://github.com/vinceliuice/Vimix-cursors.git
