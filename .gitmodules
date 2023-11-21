@@ -1,0 +1,3 @@
+[submodule "project/vimix-gtk-theme/asset/vimix-gtk-theme"]
+	path = project/vimix-gtk-theme/asset/vimix-gtk-theme
+	url = https://github.com/vinceliuice/vimix-gtk-themes.git
