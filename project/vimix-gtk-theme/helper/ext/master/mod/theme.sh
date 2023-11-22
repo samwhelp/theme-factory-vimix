@@ -82,7 +82,12 @@ mod_theme_build_core () {
 	local append_theme_size_name="$(mod_append_theme_size_name "${real_theme_size_name}")"
 
 
-	local theme_name="${real_theme_main_name}${append_theme_bright_name}${append_theme_color_name}${append_theme_size_name}"
+	local real_theme_name="${real_theme_main_name}${append_theme_bright_name}${append_theme_color_name}${append_theme_size_name}"
+
+
+	local target_theme_dir_name="${real_theme_name}"
+	local target_theme_dir_path="${target_theme_root_dir_path}/${target_theme_dir_name}"
+
 
 
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
@@ -102,7 +107,11 @@ mod_theme_build_core () {
 	util_debug_echo "append_theme_color_name=${append_theme_color_name}"
 	util_debug_echo "append_theme_size_name=${append_theme_size_name}"
 
-	util_debug_echo "theme_name=${theme_name}"
+	util_debug_echo "real_theme_name=${real_theme_name}"
+
+
+	util_debug_echo "target_theme_dir_name=${target_theme_dir_name}"
+	util_debug_echo "target_theme_dir_path=${target_theme_dir_path}"
 
 
 	return 0
