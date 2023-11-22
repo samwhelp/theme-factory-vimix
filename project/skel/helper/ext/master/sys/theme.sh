@@ -6,7 +6,7 @@
 
 
 sys_name_case_std () {
-	util_str_case_upper_fc_only "${1}"
+	util_str_case_upper_fc "${1}"
 }
 
 

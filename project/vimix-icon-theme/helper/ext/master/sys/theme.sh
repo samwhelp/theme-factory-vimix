@@ -1,12 +1,15 @@
 
 
 ################################################################################
-### Head: Master / Sys / Theme
+### Head: Master / Sys / Theme / StrCase
 ##
 
 
+sys_name_case_std () {
+	util_str_case_upper_fc "${1}"
+}
 
 
 ##
-### Tail: Master / Sys / Theme
+### Tail: Master / Sys / Theme / StrCase
 ################################################################################
