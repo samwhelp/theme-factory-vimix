@@ -39,7 +39,7 @@ mod_test () {
 
 
 
-	mod_test_mod_fix_theme
+	mod_test_theme_build_each
 
 
 
@@ -48,6 +48,18 @@ mod_test () {
 	sleep 10;
 
 }
+
+
+mod_test_theme_build_each () {
+
+	#mod_theme_build_core "$(pwd)/asset/vimix-icon-theme" "$(pwd)/tmp" "vimix" "dark" "ruby" "compact"
+
+
+	mod_theme_build_core "$(pwd)/asset/vimix-icon-theme" "$(pwd)/tmp" "vimix" "dark" "ruby" "compact"
+
+
+}
+
 
 mod_test_mod_fix_theme () {
 
