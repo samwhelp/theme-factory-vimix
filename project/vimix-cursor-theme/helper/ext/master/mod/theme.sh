@@ -1,7 +1,7 @@
 
 
 ################################################################################
-### Head: Master / Mod / Theme
+### Head: Master / Mod / Theme / StrCase
 ##
 
 
@@ -27,5 +27,5 @@ mod_fix_theme_size_name () {
 
 
 ##
-### Tail: Master / Mod / Theme
+### Tail: Master / Mod / Theme / StrCase
 ################################################################################
