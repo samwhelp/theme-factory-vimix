@@ -65,7 +65,7 @@ mod_append_theme_size_name () {
 mod_theme_build_core () {
 
 	local theme_source_root_dir_path="${1}"
-	local theme_target_root_dir_path="${2}"
+	local target_theme_root_dir_path="${2}"
 
 	local theme_main_name="${3}"
 	local theme_bright_name="${4}"
@@ -86,7 +86,7 @@ mod_theme_build_core () {
 
 
 	util_debug_echo "theme_source_root_dir_path=${theme_source_root_dir_path}"
-	util_debug_echo "theme_target_root_dir_path=${theme_target_root_dir_path}"
+	util_debug_echo "target_theme_root_dir_path=${target_theme_root_dir_path}"
 
 	util_debug_echo "theme_main_name=${theme_main_name}"
 	util_debug_echo "theme_bright_name=${theme_bright_name}"
@@ -117,11 +117,11 @@ mod_theme_build_each () {
 	local theme_size_name="${4}"
 
 	local theme_source_root_dir_path="${OPT_THEME_SOURCE_ROOT_DIR_PATH}"
-	local theme_target_root_dir_path="${OPT_THEME_TARGET_ROOT_DIR_PATH}"
+	local target_theme_root_dir_path="${OPT_THEME_TARGET_ROOT_DIR_PATH}"
 
 
 
-	mod_theme_build_core "${theme_source_root_dir_path}" "${theme_target_root_dir_path}" "${theme_main_name}" "${theme_bright_name}" "${theme_color_name}" "${theme_size_name}"
+	mod_theme_build_core "${theme_source_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_bright_name}" "${theme_color_name}" "${theme_size_name}"
 
 	return 0
 }
