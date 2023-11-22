@@ -97,8 +97,8 @@ mod_theme_build_core () {
 	local target_theme_name="${real_theme_name}"
 	local target_gtk_theme_name="${target_theme_name}"
 	local target_metacity_theme_name="${target_theme_name}"
-	local target_icon_theme_name="${target_theme_name}"
-	local target_cursor_theme_name="${target_theme_name}"
+	local target_icon_theme_name="${real_theme_main_name}${append_theme_bright_name}"
+	local target_cursor_theme_name="Vimix-Cursor"
 
 
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
