@@ -70,6 +70,7 @@ mod_theme_build_core () {
 
 	##
 	## Vimix-Ruby-Dark-Compact
+	## ${main}-${color}-${bright}-${size}
 	##
 
 	local theme_main_name="${3}"
@@ -172,6 +173,7 @@ mod_theme_build_each () {
 
 	##
 	## Vimix-Ruby-Dark-Compact
+	## ${main}-${color}-${bright}-${size}
 	##
 
 	local theme_main_name="${1}"
