@@ -210,15 +210,15 @@ mod_theme_build_core () {
 
 
 	##
-	## Dark or Light Icon
+	## Dark or Light
 	##
 
 	if [ "${theme_bright_name}" = "dark" ]; then
 		## Dark
 
+		## base_theme_dir_path: dark-theme link to light-theme
 		local -r base_theme_dir_path="${target_theme_dir_path%-Dark}-Light"
-
-		echo "base_theme_dir_path=${base_theme_dir_path}"
+		util_debug_echo "base_theme_dir_path=${base_theme_dir_path}"
 
 
 		install -d "${target_theme_dir_path}"/{16,22,24}
@@ -263,7 +263,7 @@ mod_theme_build_core () {
 
 
 	##
-	## Link / Misc
+	## Link for 2x
 	##
 
 	ln -sr "${target_theme_dir_path}/16" "${target_theme_dir_path}/16@2x"
