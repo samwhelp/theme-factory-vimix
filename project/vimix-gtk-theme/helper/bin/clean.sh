@@ -8,7 +8,7 @@
 ##
 ## ## Link
 ##
-## * https://github.com/samwhelp/skel-project-plan/blob/master/develop/sh/project-helper/basic/helper/bin/test.sh
+## * https://github.com/samwhelp/skel-project-plan/blob/master/develop/sh/project-helper/basic/helper/bin/prepare.sh
 ##
 
 ##
@@ -30,69 +30,39 @@ THE_INIT_DIR_PATH="${THE_BASE_DIR_PATH}/../ext"
 
 
 ################################################################################
-### Head: Model / Test
+### Head: Option / Clean
 ##
 
-main_test () {
-
-	util_error_echo "main_test"
+option_clean () {
 
 
-
-	main_test_theme_build_each
-
-
-
-	mod_main_signal_bind
-
-	sleep 10;
-
-}
-
-
-main_test_theme_build_each () {
-
-
-	mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "dark" "compact"
-
-
-}
-
-
-main_test_mod_fix_theme () {
-
-	mod_fix_theme_main_name "abcD"
-
-	mod_fix_theme_bright_name "abcD"
-
-	mod_fix_theme_color_name "abcD"
-
-	mod_fix_theme_size_name "abcD"
-
-}
-
-main_test_sys_name_case () {
-
-	sys_name_case_std "abcD"
-
-}
-
-main_test_util_str_case () {
-
-	util_str_case_same "abcD"
-
-	util_str_case_lower "abcD"
-
-	util_str_case_upper "abcD"
-
-	util_str_case_upper_fc "abcD"
-
-	util_str_case_upper_fc_only "abcD"
+	return 0
 
 }
 
 ##
-### Tail: Model / Test
+### Tail: Option / Clean
+################################################################################
+
+
+################################################################################
+### Head: Main / Clean
+##
+
+main_clean () {
+
+	#util_error_echo "main_clean"
+
+	option_clean
+
+	mod_tmp_clean
+
+	return 0
+
+}
+
+##
+### Tail: Main / Clean
 ################################################################################
 
 
@@ -102,7 +72,7 @@ main_test_util_str_case () {
 
 __main__ () {
 
-	main_test "${@}"
+	main_clean "${@}"
 
 }
 

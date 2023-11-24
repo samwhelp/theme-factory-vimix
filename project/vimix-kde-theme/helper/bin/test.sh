@@ -33,13 +33,13 @@ THE_INIT_DIR_PATH="${THE_BASE_DIR_PATH}/../ext"
 ### Head: Model / Test
 ##
 
-mod_test () {
+main_test () {
 
-	util_error_echo "mod_test"
+	util_error_echo "main_test"
 
 
 
-	mod_test_theme_build_each
+	main_test_theme_build_each
 
 
 
@@ -50,7 +50,7 @@ mod_test () {
 }
 
 
-mod_test_theme_build_each () {
+main_test_theme_build_each () {
 
 
 	mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "dark" "compact"
@@ -59,7 +59,7 @@ mod_test_theme_build_each () {
 }
 
 
-mod_test_mod_fix_theme () {
+main_test_mod_fix_theme () {
 
 	mod_fix_theme_main_name "abcD"
 
@@ -71,13 +71,13 @@ mod_test_mod_fix_theme () {
 
 }
 
-mod_test_sys_name_case () {
+main_test_sys_name_case () {
 
 	sys_name_case_std "abcD"
 
 }
 
-mod_test_util_str_case () {
+main_test_util_str_case () {
 
 	util_str_case_same "abcD"
 
@@ -102,7 +102,7 @@ mod_test_util_str_case () {
 
 __main__ () {
 
-	mod_test "${@}"
+	main_test "${@}"
 
 }
 

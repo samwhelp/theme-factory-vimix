@@ -194,3 +194,24 @@ mod_theme_build_each () {
 ##
 ### Tail: Master / Mod / Theme / Build
 ################################################################################
+
+
+
+
+################################################################################
+### Head: Master / Mod / Tmp / Clean
+##
+
+
+mod_tmp_clean () {
+
+	util_error_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
+	rm -rf "${THE_MASTER_TMP_DIR_PATH}"
+
+	return 0
+}
+
+
+##
+### Tail: Master / Mod / Tmp / Clean
+################################################################################
