@@ -181,9 +181,8 @@ mod_theme_build_each () {
 	local theme_bright_name="${3}"
 	local theme_size_name="${4}"
 
-	local source_theme_root_dir_path="${OPT_THEME_SOURCE_ROOT_DIR_PATH}"
-	local target_theme_root_dir_path="${OPT_THEME_TARGET_ROOT_DIR_PATH}"
-
+	local source_theme_root_dir_path="${OPT_SOURCE_THEME_ROOT_DIR_PATH}"
+	local target_theme_root_dir_path="${OPT_TARGET_THEME_ROOT_DIR_PATH}"
 
 
 	mod_theme_build_core "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_bright_name}" "${theme_color_name}" "${theme_size_name}"
