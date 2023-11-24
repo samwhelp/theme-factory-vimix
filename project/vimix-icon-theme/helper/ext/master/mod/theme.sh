@@ -173,13 +173,14 @@ mod_theme_build_core () {
 	util_error_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
 
-	##
-	## index.theme
-	##
 
 
-	util_error_echo
-	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
+	##
+	## Create index.theme
+	##
+
+	##util_error_echo
+	##util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
 
 
 	util_error_echo install -m644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
@@ -188,7 +189,7 @@ mod_theme_build_core () {
 	sed -i "s/%NAME%/${target_theme_name}/g" "${target_theme_dir_path}/index.theme"
 
 
-
+	## Replace Inherits
 	##Inherits=Papirus,Numix-Circle,Adwaita,hicolor
 	##sed -i 's/^Inherits=.*/Inherits=Papirus,Numix-Circle,Adwaita,hicolor/g' "${target_theme_dir_path}/index.theme"
 
@@ -203,6 +204,75 @@ mod_theme_build_core () {
 	##local pattern="s/^${key}.*/${key}=\"${val}\"/g"
 	local pattern="s/^${key}.*/${key}=${val}/g"
 	sed -i "${pattern}" "${target_theme_dir_path}/index.theme"
+
+
+
+
+
+	##
+	## Dark or Light Icon
+	##
+
+	if [ "${theme_bright_name}" = "dark" ]; then
+		## Dark
+
+		local -r base_theme_dir_path="${target_theme_dir_path%-Dark}-Light"
+
+		echo "base_theme_dir_path=${base_theme_dir_path}"
+
+
+		install -d "${target_theme_dir_path}"/{16,22,24}
+
+		cp -r "${source_theme_root_dir_path}"/src/16/{actions,devices,places} "${target_theme_dir_path}/16"
+		cp -r "${source_theme_root_dir_path}"/src/22/{actions,devices,places} "${target_theme_dir_path}/22"
+		cp -r "${source_theme_root_dir_path}"/src/24/{actions,devices,places} "${target_theme_dir_path}/24"
+
+		# Change icon color for dark theme
+		sed -i "s/#565656/#aaaaaa/g" "${target_theme_dir_path}"/{16,22,24}/actions/*
+		sed -i "s/#727272/#aaaaaa/g" "${target_theme_dir_path}"/{16,22,24}/{places,devices}/*
+
+		cp -r "${source_theme_root_dir_path}"/links/16/{actions,devices,places} "${target_theme_dir_path}/16"
+		cp -r "${source_theme_root_dir_path}"/links/22/{actions,devices,places} "${target_theme_dir_path}/22"
+		cp -r "${source_theme_root_dir_path}"/links/24/{actions,devices,places} "${target_theme_dir_path}/24"
+
+		# Link the common icons
+		ln -sr "${base_theme_dir_path}/scalable" "${target_theme_dir_path}/scalable"
+		ln -sr "${base_theme_dir_path}/symbolic" "${target_theme_dir_path}/symbolic"
+		ln -sr "${base_theme_dir_path}/32" "${target_theme_dir_path}/32"
+		ln -sr "${base_theme_dir_path}/16/mimetypes" "${target_theme_dir_path}/16/mimetypes"
+		ln -sr "${base_theme_dir_path}/16/panel" "${target_theme_dir_path}/16/panel"
+		ln -sr "${base_theme_dir_path}/16/status" "${target_theme_dir_path}/16/status"
+		ln -sr "${base_theme_dir_path}/22/emblems" "${target_theme_dir_path}/22/emblems"
+		ln -sr "${base_theme_dir_path}/22/mimetypes" "${target_theme_dir_path}/22/mimetypes"
+		ln -sr "${base_theme_dir_path}/22/panel" "${target_theme_dir_path}/22/panel"
+		ln -sr "${base_theme_dir_path}/24/animations" "${target_theme_dir_path}/24/animations"
+		ln -sr "${base_theme_dir_path}/24/panel" "${target_theme_dir_path}/24/panel"
+
+	else
+
+		## Light
+		cp -r "${source_theme_root_dir_path}"/src/{16,22,24,32,scalable,symbolic} "${target_theme_dir_path}"
+		cp -r "${source_theme_root_dir_path}"/links/{16,22,24,32,scalable,symbolic} "${target_theme_dir_path}"
+		if [ -n "${theme_color_name}" ]; then
+			install -m644 "${source_theme_root_dir_path}/src/colors/color${append_theme_color_name,,}/"*.svg "${target_theme_dir_path}/scalable/places"
+		fi
+
+	fi
+
+
+
+
+	##
+	## Link / Misc
+	##
+
+	ln -sr "${target_theme_dir_path}/16" "${target_theme_dir_path}/16@2x"
+	ln -sr "${target_theme_dir_path}/22" "${target_theme_dir_path}/22@2x"
+	ln -sr "${target_theme_dir_path}/24" "${target_theme_dir_path}/24@2x"
+	ln -sr "${target_theme_dir_path}/32" "${target_theme_dir_path}/32@2x"
+	ln -sr "${target_theme_dir_path}/scalable" "${target_theme_dir_path}/scalable@2x"
+
+
 
 
 	return 0
