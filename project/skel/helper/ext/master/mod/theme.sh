@@ -68,6 +68,9 @@ mod_theme_build_core () {
 	local target_theme_root_dir_path="${2}"
 
 
+	local source_theme_dir_path="${source_theme_root_dir_path}"
+
+
 	##
 	## Vimix-Ruby-Dark-Compact
 	## ${main}-${color}-${bright}-${size}
@@ -111,6 +114,10 @@ mod_theme_build_core () {
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
 	util_debug_echo "target_theme_root_dir_path=${target_theme_root_dir_path}"
 
+
+	util_debug_echo "source_theme_dir_path=${source_theme_root_dir_path}"
+
+
 	util_debug_echo "theme_main_name=${theme_main_name}"
 	util_debug_echo "theme_bright_name=${theme_bright_name}"
 	util_debug_echo "theme_color_name=${theme_color_name}"
@@ -130,7 +137,6 @@ mod_theme_build_core () {
 
 	util_debug_echo "target_theme_dir_name=${target_theme_dir_name}"
 	util_debug_echo "target_theme_dir_path=${target_theme_dir_path}"
-
 
 
 	util_debug_echo "target_theme_name=${target_theme_name}"
@@ -167,8 +173,10 @@ mod_theme_build_core () {
 	## index.theme
 	##
 
+
 	util_error_echo
 	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
+
 
 cat > "${target_theme_dir_path}/index.theme" << __EOF__
 [Desktop Entry]
