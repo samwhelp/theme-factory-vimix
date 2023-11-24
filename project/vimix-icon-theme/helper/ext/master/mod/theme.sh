@@ -145,16 +145,30 @@ mod_theme_build_core () {
 	## Build Start ##
 	#################
 
+	##
+	## Remove Old Theme Dir
+	##
+
+	if [ -d "${target_theme_dir_path}" ]; then
+		util_error_echo
+		util_error_echo rm -rf "${target_theme_dir_path}"
+		rm -rf "${target_theme_dir_path}"
+	fi
 
 	##
 	## Build Theme Dir
 	##
 
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
 
 	##
 	## index.theme
 	##
+
+	util_error_echo
+	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
 
 cat > "${target_theme_dir_path}/index.theme" << __EOF__
 [Desktop Entry]
