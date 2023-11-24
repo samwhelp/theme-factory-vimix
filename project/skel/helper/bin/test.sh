@@ -52,10 +52,8 @@ mod_test () {
 
 mod_test_theme_build_each () {
 
-	#mod_theme_build_core "$(pwd)/asset/vimix-icon-theme" "$(pwd)/tmp/dist" "vimix" "dark" "ruby" "compact"
 
-
-	mod_theme_build_core "$(pwd)/asset/vimix-icon-theme" "$(pwd)/tmp/dist" "vimix" "ruby" "dark" "compact"
+	mod_theme_build_core "${THE_SOURCE_ROOT_THEME_DIR_PATH}" "${THE_TARGET_ROOT_THEME_DIR_PATH}" "vimix" "ruby" "dark" "compact"
 
 
 }
