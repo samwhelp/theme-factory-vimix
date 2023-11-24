@@ -200,7 +200,8 @@ mod_theme_build_core () {
 		val="Papirus-Light,Numix-Circle-Light,Adwaita,gnome,hicolor"
 	fi
 
-	local pattern="s/^${key}.*/${key}=\"${val}\"/g"
+	##local pattern="s/^${key}.*/${key}=\"${val}\"/g"
+	local pattern="s/^${key}.*/${key}=${val}/g"
 	sed -i "${pattern}" "${target_theme_dir_path}/index.theme"
 
 
