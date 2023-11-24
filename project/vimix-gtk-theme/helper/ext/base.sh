@@ -437,8 +437,8 @@ base_var_dump () {
 	util_debug_echo "##"
 	util_debug_echo
 
-	util_debug_echo "THE_TARGET_THEME_BUILD_COLOR_LIST=${THE_TARGET_THEME_BUILD_COLOR_LIST}"
-	util_debug_echo "THE_TARGET_THEME_BUILD_BRIGHT_LIST=${THE_TARGET_THEME_BUILD_BRIGHT_LIST}"
+	util_debug_echo "THE_TARGET_THEME_BUILD_COLOR_LIST=${THE_TARGET_THEME_BUILD_COLOR_LIST[@]}"
+	util_debug_echo "THE_TARGET_THEME_BUILD_BRIGHT_LIST=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}"
 	util_debug_echo
 
 
