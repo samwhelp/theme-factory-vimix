@@ -36,8 +36,23 @@ THE_INIT_DIR_PATH="${THE_BASE_DIR_PATH}/../ext"
 option_build () {
 
 
+	##
+	## Option for mod_theme_build_each
+	##
+
 	OPT_SOURCE_THEME_ROOT_DIR_PATH="${OPT_SOURCE_THEME_ROOT_DIR_PATH:=${THE_SOURCE_THEME_ROOT_DIR_PATH}}"
 	OPT_TARGET_THEME_ROOT_DIR_PATH="${OPT_TARGET_THEME_ROOT_DIR_PATH:=${THE_TARGET_THEME_ROOT_DIR_PATH}}"
+
+
+
+	##
+	## Option for mod_theme_build_all
+	##
+
+	OPT_TARGET_THEME_BUILD_MAIN_NAME="${THE_TARGET_THEME_BUILD_MAIN_NAME:=${THE_TARGET_THEME_BUILD_MAIN_NAME}}"
+	OPT_TARGET_THEME_BUILD_COLOR_LIST=${THE_TARGET_THEME_BUILD_COLOR_LIST[@]}
+	OPT_TARGET_THEME_BUILD_BRIGHT_LIST=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}
+
 
 
 	return 0
@@ -59,7 +74,9 @@ main_build () {
 
 	option_build
 
-	mod_theme_build_each "vimix" "ruby" "dark" "compact"
+	##mod_theme_build_each "vimix" "ruby" "dark" "compact"
+
+	mod_theme_build_all
 
 	return 0
 

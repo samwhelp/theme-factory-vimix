@@ -78,6 +78,12 @@ mod_theme_build_core () {
 	local theme_bright_name="${5}"
 	local theme_size_name="${6}"
 
+
+	if [ "${theme_color_name}" = "standard" ]; then
+		theme_color_name=""
+	fi
+
+
 	local real_theme_main_name="$(mod_fix_theme_main_name "${theme_main_name}")"
 	local real_theme_bright_name="$(mod_fix_theme_bright_name "${theme_bright_name}")"
 	local real_theme_color_name="$(mod_fix_theme_color_name "${theme_color_name}")"
@@ -181,15 +187,39 @@ mod_theme_build_each () {
 	local theme_bright_name="${3}"
 	local theme_size_name="${4}"
 
-	local source_theme_root_dir_path="${OPT_SOURCE_THEME_ROOT_DIR_PATH}"
-	local target_theme_root_dir_path="${OPT_TARGET_THEME_ROOT_DIR_PATH}"
+	local source_theme_root_dir_path="${OPT_SOURCE_THEME_ROOT_DIR_PATH:=${THE_SOURCE_THEME_ROOT_DIR_PATH}}"
+	local target_theme_root_dir_path="${OPT_TARGET_THEME_ROOT_DIR_PATH:=${THE_TARGET_THEME_ROOT_DIR_PATH}}"
 
 
-	mod_theme_build_core "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_bright_name}" "${theme_color_name}" "${theme_size_name}"
+	mod_theme_build_core "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
 
 	return 0
 }
 
+
+mod_theme_build_all () {
+
+	local target_theme_build_color_list=${OPT_TARGET_THEME_BUILD_COLOR_LIST[@]:=${THE_TARGET_THEME_BUILD_COLOR_LIST[@]}}
+	local target_theme_build_bright_list=${OPT_TARGET_THEME_BUILD_BRIGHT_LIST[@]:=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}}
+
+
+	local theme_main_name="${THE_TARGET_THEME_BUILD_MAIN_NAME:=${THE_TARGET_THEME_BUILD_MAIN_NAME}}"
+	local theme_color_name
+	local theme_bright_name
+
+	for theme_color_name in ${target_theme_build_color_list[@]}; do
+		for theme_bright_name in ${target_theme_build_bright_list[@]}; do
+			util_error_echo
+			util_error_echo "##"
+			util_error_echo "##" mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}"
+			util_error_echo "##"
+			util_error_echo
+			mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}"
+		done
+	done
+
+	return 0
+}
 
 ##
 ### Tail: Master / Mod / Theme / Build
