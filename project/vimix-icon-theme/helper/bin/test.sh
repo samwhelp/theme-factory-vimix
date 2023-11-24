@@ -53,7 +53,7 @@ mod_test () {
 mod_test_theme_build_each () {
 
 
-	mod_theme_build_core "${THE_SOURCE_ROOT_THEME_DIR_PATH}" "${THE_TARGET_ROOT_THEME_DIR_PATH}" "vimix" "ruby" "dark" "compact"
+	mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "dark" "compact"
 
 
 }
