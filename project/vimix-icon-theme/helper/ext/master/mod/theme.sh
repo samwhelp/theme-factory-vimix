@@ -188,6 +188,22 @@ mod_theme_build_core () {
 	sed -i "s/%NAME%/${target_theme_name}/g" "${target_theme_dir_path}/index.theme"
 
 
+
+	##Inherits=Papirus,Numix-Circle,Adwaita,hicolor
+	##sed -i 's/^Inherits=.*/Inherits=Papirus,Numix-Circle,Adwaita,hicolor/g' "${target_theme_dir_path}/index.theme"
+
+	local key="Inherits"
+	local val="Papirus${append_theme_bright_name},Numix-Circle${append_theme_bright_name},Adwaita,gnome,hicolor"
+	if [ "${theme_bright_name}" = "dark" ]; then
+		val="Papirus-Dark,Numix-Circle,Adwaita,gnome,hicolor"
+	else
+		val="Papirus-Light,Numix-Circle-Light,Adwaita,gnome,hicolor"
+	fi
+
+	local pattern="s/^${key}.*/${key}=\"${val}\"/g"
+	sed -i "${pattern}" "${target_theme_dir_path}/index.theme"
+
+
 	return 0
 }
 
