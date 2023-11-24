@@ -33,9 +33,9 @@ THE_INIT_DIR_PATH="${THE_BASE_DIR_PATH}/../ext"
 ### Head: Model / Prepare
 ##
 
-mod_prepare () {
+main_prepare () {
 
-	util_error_echo "mod_prepare"
+	util_error_echo "main_prepare"
 
 	mod_main_signal_bind
 
@@ -54,7 +54,7 @@ mod_prepare () {
 
 __main__ () {
 
-	mod_prepare "${@}"
+	main_prepare "${@}"
 
 }
 

@@ -9,3 +9,7 @@ build:
 	@build.sh
 .PHONY: build
 
+
+clean:
+	@clean.sh
+.PHONY: clean
