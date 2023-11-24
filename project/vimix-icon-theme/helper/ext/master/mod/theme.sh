@@ -104,6 +104,10 @@ mod_theme_build_core () {
 	local target_theme_dir_path="${target_theme_root_dir_path}/${target_theme_dir_name}"
 
 
+	##
+	## for repace
+	##
+
 	local target_theme_name="${real_theme_name}"
 	local target_gtk_theme_name="${target_theme_name}"
 	local target_metacity_theme_name="${target_theme_name}"
@@ -178,20 +182,11 @@ mod_theme_build_core () {
 	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
 
 
-cat > "${target_theme_dir_path}/index.theme" << __EOF__
-[Desktop Entry]
-Type=X-GNOME-Metatheme
-Name=${target_theme_name}
-Comment=Clean Gtk+ theme based on Material Design
-Encoding=UTF-8
+	util_error_echo install -m644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
+	install -m644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
 
-[X-GNOME-Metatheme]
-GtkTheme=${target_gtk_theme_name}
-MetacityTheme=${target_metacity_theme_name}
-IconTheme=${target_icon_theme_name}
-CursorTheme=${target_cursor_theme_name}
-ButtonLayout=menu:minimize,maximize,close
-__EOF__
+	sed -i "s/%NAME%/${target_theme_name}/g" "${target_theme_dir_path}/index.theme"
+
 
 	return 0
 }
