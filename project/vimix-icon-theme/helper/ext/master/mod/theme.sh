@@ -183,8 +183,8 @@ mod_theme_build_core () {
 	##util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
 
 
-	util_error_echo install -m644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
-	install -m644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
+	util_error_echo install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
+	install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
 
 	sed -i "s/%NAME%/${target_theme_name}/g" "${target_theme_dir_path}/index.theme"
 
@@ -273,6 +273,11 @@ mod_theme_build_core () {
 	ln -sr "${target_theme_dir_path}/scalable" "${target_theme_dir_path}/scalable@2x"
 
 
+	##
+	## Icon Cache
+	##
+
+	sys_icon_cache_update "${target_theme_dir_path}"
 
 
 	return 0

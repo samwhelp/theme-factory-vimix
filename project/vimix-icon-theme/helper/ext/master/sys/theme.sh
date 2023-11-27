@@ -40,3 +40,24 @@ sys_name_append_std () {
 ##
 ### Tail: Master / Sys / Theme / NameAppend
 ################################################################################
+
+
+
+
+################################################################################
+### Head: Master / Sys / Theme / IconCache
+##
+
+
+sys_icon_cache_update () {
+
+	local icon_theme_dir_path="${1}"
+
+	gtk-update-icon-cache "${icon_theme_dir_path}"
+
+}
+
+
+##
+### Tail: Master / Sys / Theme / IconCache
+################################################################################
