@@ -196,7 +196,7 @@ mod_theme_build_core () {
 	##util_error_echo
 	##util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
 
-
+	util_error_echo
 	util_error_echo install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
 	install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
 
