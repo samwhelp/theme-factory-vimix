@@ -267,3 +267,18 @@ mod_tmp_clean () {
 ##
 ### Tail: Master / Mod / Tmp / Clean
 ################################################################################
+
+
+################################################################################
+### Head: Master / Mod / Theme / Build / Essential
+##
+
+
+mod_build_essential () {
+	util_error_echo "mod_build_essential: **Do Nothing**"
+}
+
+
+##
+### Tail: Master / Mod / Theme / Build / Essential
+################################################################################

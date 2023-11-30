@@ -35,11 +35,13 @@ THE_INIT_DIR_PATH="${THE_BASE_DIR_PATH}/../ext"
 
 main_prepare () {
 
-	util_error_echo "main_prepare"
+	#util_error_echo "main_prepare"
 
-	mod_main_signal_bind
+	#mod_main_signal_bind
 
-	sleep 10;
+	mod_build_essential
+
+	#sleep 10;
 
 }
 
