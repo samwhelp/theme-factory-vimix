@@ -193,7 +193,7 @@ base_var_init () {
 	## ## Master Path / Source
 	##
 
-	THE_SOURCE_THEME_ROOT_DIR_NAME="vimix-icon-theme"
+	THE_SOURCE_THEME_ROOT_DIR_NAME="vimix-gtk-theme"
 	THE_SOURCE_THEME_ROOT_DIR_PATH="${THE_MASTER_ASSET_DIR_PATH}/${THE_SOURCE_THEME_ROOT_DIR_NAME}"
 
 
@@ -211,8 +211,8 @@ base_var_init () {
 
 	readonly THE_TARGET_THEME_BUILD_MAIN_NAME="vimix"
 	readonly THE_TARGET_THEME_BUILD_COLOR_LIST=("standard" "amethyst" "beryl" "doder" "ruby" "jade" "black" "white")
-	readonly THE_TARGET_THEME_BUILD_BRIGHT_LIST=("light" "dark")
-
+	readonly THE_TARGET_THEME_BUILD_BRIGHT_LIST=("standard" "light" "dark")
+	readonly THE_TARGET_THEME_BUILD_SIZE_LIST=("standard" "compact")
 
 	return 0
 
@@ -437,8 +437,11 @@ base_var_dump () {
 	util_debug_echo "##"
 	util_debug_echo
 
+
+	util_debug_echo "THE_TARGET_THEME_BUILD_MAIN_NAME=${THE_TARGET_THEME_BUILD_MAIN_NAME}"
 	util_debug_echo "THE_TARGET_THEME_BUILD_COLOR_LIST=${THE_TARGET_THEME_BUILD_COLOR_LIST[@]}"
 	util_debug_echo "THE_TARGET_THEME_BUILD_BRIGHT_LIST=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}"
+	util_debug_echo "THE_TARGET_THEME_BUILD_SIZE_LIST=${THE_TARGET_THEME_BUILD_SIZE_LIST[@]}"
 	util_debug_echo
 
 
