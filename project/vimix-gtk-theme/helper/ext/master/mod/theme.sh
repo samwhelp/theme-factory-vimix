@@ -189,7 +189,8 @@ mod_theme_build_core () {
 	mkdir -p "${target_theme_dir_path}"
 
 
-	## README
+	##
+	## README.md
 	##
 
 	util_error_echo

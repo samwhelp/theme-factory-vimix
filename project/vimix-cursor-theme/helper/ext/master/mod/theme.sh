@@ -155,6 +155,7 @@ mod_theme_build_core () {
 	## Build Start ##
 	#################
 
+
 	##
 	## Remove Old Theme Dir
 	##
@@ -165,6 +166,7 @@ mod_theme_build_core () {
 		rm -rf "${target_theme_dir_path}"
 	fi
 
+
 	##
 	## Build Theme Dir
 	##
@@ -172,6 +174,16 @@ mod_theme_build_core () {
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
+
+
+	##
+	## README.md
+	##
+
+	util_error_echo
+	util_error_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
+	install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
+
 
 	##
 	## index.theme
