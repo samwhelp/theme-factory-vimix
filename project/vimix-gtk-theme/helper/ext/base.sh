@@ -210,7 +210,7 @@ base_var_init () {
 	##
 
 	readonly THE_TARGET_THEME_BUILD_MAIN_NAME="vimix"
-	readonly THE_TARGET_THEME_BUILD_COLOR_LIST=("standard" "amethyst" "beryl" "doder" "ruby" "jade" "black" "white")
+	readonly THE_TARGET_THEME_BUILD_COLOR_LIST=("amethyst" "beryl" "doder" "ruby" "jade" "grey")
 	readonly THE_TARGET_THEME_BUILD_BRIGHT_LIST=("standard" "light" "dark")
 	readonly THE_TARGET_THEME_BUILD_SIZE_LIST=("standard" "compact")
 

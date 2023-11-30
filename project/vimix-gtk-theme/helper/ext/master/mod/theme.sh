@@ -245,6 +245,17 @@ __EOF__
 	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0"
 	mkdir -p "${target_theme_dir_path}/gtk-2.0"
 
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0/assets"
+	mkdir -p "${target_theme_dir_path}/gtk-2.0/assets"
+
+	util_error_echo
+	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common/"*.rc "${target_theme_dir_path}/gtk-2.0"
+	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common/"*.rc "${target_theme_dir_path}/gtk-2.0"
+
+	util_error_echo
+	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common/"*.rc "${target_theme_dir_path}/gtk-2.0"
+	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix"*.rc "${target_theme_dir_path}/gtk-2.0"
 
 
 
