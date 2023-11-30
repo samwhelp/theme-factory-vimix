@@ -1,10 +1,10 @@
 
 
-# vimix-gtk-theme
+# vimix-icon-theme
 
 | Project | Source |
 | --- | --- |
-| [vimix-gtk-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-gtk-theme) | [Source](https://github.com/vinceliuice/vimix-gtk-themes) |
+| [vimix-icon-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-gtk-theme) | [Source](https://github.com/vinceliuice/vimix-icon-theme) |
 
 
 ## Theme Factory / vimix

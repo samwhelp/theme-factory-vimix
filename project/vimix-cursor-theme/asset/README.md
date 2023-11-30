@@ -1,10 +1,10 @@
 
 
-# vimix-gtk-theme
+# vimix-cursor-theme
 
 | Project | Source |
 | --- | --- |
-| [vimix-gtk-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-gtk-theme) | [Source](https://github.com/vinceliuice/vimix-gtk-themes) |
+| [vimix-cursor-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-cursor-theme) | [Source](https://github.com/vinceliuice/Vimix-cursors) |
 
 
 ## Theme Factory / vimix
