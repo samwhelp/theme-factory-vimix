@@ -291,8 +291,44 @@ mod_tmp_clean () {
 
 
 mod_build_essential () {
-	util_error_echo "mod_build_essential: **Do Nothing**"
+	mod_build_essential_for_sassc
 }
+
+
+mod_build_essential_for_sassc () {
+
+	if is_command_exist "sassc"; then
+		return 0
+	fi
+
+
+
+
+	util_error_echo
+	util_error_echo "##"
+	util_error_echo "## sassc needs to be installed to generate the css."
+	util_error_echo "##"
+	util_error_echo
+
+	if is_command_exist "zypper"; then
+		util_error_echo "sudo zypper in sassc"
+		sudo zypper in sassc
+	elif is_command_exist "apt-get"; then
+		util_error_echo "sudo apt-get install sassc"
+		sudo apt-get install sassc
+	elif is_command_exist "dnf"; then
+		util_error_echo "sudo dnf install sassc"
+		sudo dnf install sassc
+	elif is_command_exist "dnf"; then
+		util_error_echo "sudo dnf install sassc"
+		sudo dnf install sassc
+	elif is_command_exist "pacman"; then
+		util_error_echo "sudo pacman -S --noconfirm --asdeps sassc"
+		sudo pacman -S --noconfirm --asdeps sassc
+	fi
+
+}
+
 
 
 ##
