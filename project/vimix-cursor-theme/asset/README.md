@@ -22,3 +22,8 @@
 | [vimix-kde-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-kde-theme) | [Source](https://github.com/vinceliuice/vimix-kde) |
 | [vimix-icon-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-gtk-theme) | [Source](https://github.com/vinceliuice/vimix-icon-theme) |
 | [vimix-cursor-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-cursor-theme) | [Source](https://github.com/vinceliuice/Vimix-cursors) |
+
+
+## Search
+
+* [vimix](https://github.com/vinceliuice?tab=repositories&q=vimix)
