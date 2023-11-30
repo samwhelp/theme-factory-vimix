@@ -235,13 +235,103 @@ __EOF__
 	install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
 
 
+
+
 	##
-	## gtk2
+	## theme / gtk2
 	##
 
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0"
 	mkdir -p "${target_theme_dir_path}/gtk-2.0"
+
+
+
+
+	##
+	## theme / gtk3
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-3.0"
+	mkdir -p "${target_theme_dir_path}/gtk-3.0"
+
+
+
+
+	##
+	## theme / gtk4
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-4.0"
+	mkdir -p "${target_theme_dir_path}/gtk-4.0"
+
+
+
+
+	##
+	## theme / gnome-shell
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/gnome-shell"
+	mkdir -p "${target_theme_dir_path}/gnome-shell"
+
+
+
+
+	##
+	## theme / metacity
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/metacity-1"
+	mkdir -p "${target_theme_dir_path}/metacity-1"
+
+
+
+
+	##
+	## theme / xfwm4
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/xfwm4"
+	mkdir -p "${target_theme_dir_path}/xfwm4"
+
+
+
+
+	##
+	## theme / unity
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/unity"
+	mkdir -p "${target_theme_dir_path}/unity"
+
+
+
+
+	##
+	## theme / plank
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/plank"
+	mkdir -p "${target_theme_dir_path}/plank"
+
+
+
+
+	##
+	## theme / cinnamon
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/cinnamon"
+	mkdir -p "${target_theme_dir_path}/cinnamon"
 
 
 
