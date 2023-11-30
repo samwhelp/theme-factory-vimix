@@ -312,6 +312,9 @@ __EOF__
 	mkdir -p "${target_theme_dir_path}/unity"
 
 
+	util_error_echo
+	util_error_echo cp -rf "${source_theme_root_dir_path}/src/unity/." "${target_theme_dir_path}/unity"
+	cp -rf "${source_theme_root_dir_path}/src/unity/." "${target_theme_dir_path}/unity"
 
 
 	##
