@@ -215,8 +215,8 @@ mod_theme_build_core () {
 	##
 
 	if [ -d "${target_theme_dir_path}" ]; then
-		util_error_echo
-		util_error_echo rm -rf "${target_theme_dir_path}"
+		util_debug_echo
+		util_debug_echo rm -rf "${target_theme_dir_path}"
 		rm -rf "${target_theme_dir_path}"
 	fi
 
@@ -225,8 +225,8 @@ mod_theme_build_core () {
 	## Build Theme Dir
 	##
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
 
 
@@ -234,8 +234,8 @@ mod_theme_build_core () {
 	## README.md
 	##
 
-	util_error_echo
-	util_error_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
+	util_debug_echo
+	util_debug_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
 	install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
 
 
@@ -243,8 +243,8 @@ mod_theme_build_core () {
 	## index.theme
 	##
 
-	util_error_echo
-	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
+	util_debug_echo
+	util_debug_echo "Create File: ${target_theme_dir_path}/index.theme"
 
 
 cat > "${target_theme_dir_path}/index.theme" << __EOF__
@@ -267,12 +267,12 @@ __EOF__
 	## LICENSE
 	##
 
-	util_error_echo
-	util_error_echo install -Dm644 "${source_theme_root_dir_path}/LICENSE" "${target_theme_dir_path}/LICENSE"
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/LICENSE" "${target_theme_dir_path}/LICENSE"
 	install -Dm644 "${source_theme_root_dir_path}/LICENSE" "${target_theme_dir_path}/LICENSE"
 
-	util_error_echo
-	util_error_echo install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
 	install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
 
 
@@ -282,27 +282,27 @@ __EOF__
 	## theme / gtk2
 	##
 
-	util_error_echo
-	util_error_echo "### theme / gtk2"
+	util_debug_echo
+	util_debug_echo "### theme / gtk2"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-2.0"
 	mkdir -p "${target_theme_dir_path}/gtk-2.0"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0/assets"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-2.0/assets"
 	mkdir -p "${target_theme_dir_path}/gtk-2.0/assets"
 
-	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common"/*.rc "${target_theme_dir_path}/gtk-2.0"
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common"/*.rc "${target_theme_dir_path}/gtk-2.0"
 	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common"/*.rc "${target_theme_dir_path}/gtk-2.0"
 
-	util_error_echo
-	util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark,,}"/. "${target_theme_dir_path}/gtk-2.0/assets"
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark,,}"/. "${target_theme_dir_path}/gtk-2.0/assets"
 	cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark,,}"/. "${target_theme_dir_path}/gtk-2.0/assets"
 
-	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/gtkrc${append_theme_bright_name,,}${append_theme_color_name,,}" "${target_theme_dir_path}/gtk-2.0/gtkrc"
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/gtkrc${append_theme_bright_name,,}${append_theme_color_name,,}" "${target_theme_dir_path}/gtk-2.0/gtkrc"
 	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/gtkrc${append_theme_bright_name,,}${append_theme_color_name,,}" "${target_theme_dir_path}/gtk-2.0/gtkrc"
 
 
@@ -310,19 +310,19 @@ __EOF__
 	## theme / gtk3
 	##
 
-	util_error_echo
-	util_error_echo "### theme / gtk3"
+	util_debug_echo
+	util_debug_echo "### theme / gtk3"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-3.0"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-3.0"
 	mkdir -p "${target_theme_dir_path}/gtk-3.0"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-3.0/assets"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-3.0/assets"
 	mkdir -p "${target_theme_dir_path}/gtk-3.0/assets"
 
-	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-3.0/assets"
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-3.0/assets"
 	cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-3.0/assets"
 
 
@@ -330,48 +330,48 @@ __EOF__
 
 	if [ "${is_building_flat}" != "true" ]; then
 		if [ "${is_building_grey}" = "true" ]; then
-			util_error_echo
-			util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
+			util_debug_echo
+			util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
 			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
 		else
-			util_error_echo
-			util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
+			util_debug_echo
+			util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
 			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
 		fi
 	fi
 
 
 
-	util_error_echo
-	util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
 	cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
 
 
 
 
 	if [ "${is_building_tweaks}" = "true" ]; then
-		util_error_echo
-		util_error_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-3.0/gtk.css"
+		util_debug_echo
+		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-3.0/gtk.css"
 		${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-3.0/gtk.css"
 
-		util_error_echo
-		util_error_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk-dark.scss" "${target_theme_dir_path}/gtk-3.0/gtk-dark.css"
+		util_debug_echo
+		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk-dark.scss" "${target_theme_dir_path}/gtk-3.0/gtk-dark.css"
 		${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk-dark.scss" "${target_theme_dir_path}/gtk-3.0/gtk-dark.css"
 	else
-		util_error_echo
-		util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gtk-3.0/gtk.css"
+		util_debug_echo
+		util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gtk-3.0/gtk.css"
 		cp -f "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gtk-3.0/gtk.css"
 
-		util_error_echo
-		util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk/3.0/gtk-dark.css" "${target_theme_dir_path}/gtk-3.0/gtk-dark.css"
+		util_debug_echo
+		util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/3.0/gtk-dark.css" "${target_theme_dir_path}/gtk-3.0/gtk-dark.css"
 		cp -f "${source_theme_root_dir_path}/src/gtk/3.0/gtk-dark.css" "${target_theme_dir_path}/gtk-3.0/gtk-dark.css"
 	fi
 
 
 
 
-	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-3.0/thumbnail.png"
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-3.0/thumbnail.png"
 	cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-3.0/thumbnail.png"
 
 
@@ -381,11 +381,11 @@ __EOF__
 	## theme / gtk4
 	##
 
-	util_error_echo
-	util_error_echo "### theme / gtk4"
+	util_debug_echo
+	util_debug_echo "### theme / gtk4"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-4.0"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-4.0"
 	mkdir -p "${target_theme_dir_path}/gtk-4.0"
 
 
@@ -395,11 +395,11 @@ __EOF__
 	## theme / gnome-shell
 	##
 
-	util_error_echo
-	util_error_echo "### theme / gnome-shell"
+	util_debug_echo
+	util_debug_echo "### theme / gnome-shell"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/gnome-shell"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gnome-shell"
 	mkdir -p "${target_theme_dir_path}/gnome-shell"
 
 
@@ -409,11 +409,11 @@ __EOF__
 	## theme / metacity
 	##
 
-	util_error_echo
-	util_error_echo "### theme / metacity"
+	util_debug_echo
+	util_debug_echo "### theme / metacity"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/metacity-1"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/metacity-1"
 	mkdir -p "${target_theme_dir_path}/metacity-1"
 
 
@@ -423,11 +423,11 @@ __EOF__
 	## theme / xfwm4
 	##
 
-	util_error_echo
-	util_error_echo "### theme / xfwm4"
+	util_debug_echo
+	util_debug_echo "### theme / xfwm4"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/xfwm4"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/xfwm4"
 	mkdir -p "${target_theme_dir_path}/xfwm4"
 
 
@@ -437,16 +437,16 @@ __EOF__
 	## theme / unity
 	##
 
-	util_error_echo
-	util_error_echo "### theme / unity"
+	util_debug_echo
+	util_debug_echo "### theme / unity"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/unity"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/unity"
 	mkdir -p "${target_theme_dir_path}/unity"
 
 
-	util_error_echo
-	util_error_echo cp -rf "${source_theme_root_dir_path}/src/unity"/. "${target_theme_dir_path}/unity"
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/unity"/. "${target_theme_dir_path}/unity"
 	cp -rf "${source_theme_root_dir_path}/src/unity"/. "${target_theme_dir_path}/unity"
 
 
@@ -454,15 +454,15 @@ __EOF__
 	## theme / plank
 	##
 
-	util_error_echo
-	util_error_echo "### theme / plank"
+	util_debug_echo
+	util_debug_echo "### theme / plank"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/plank"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/plank"
 	mkdir -p "${target_theme_dir_path}/plank"
 
-	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/plank/dock${append_else_light,,}.theme" "${target_theme_dir_path}/plank/dock.theme"
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/plank/dock${append_else_light,,}.theme" "${target_theme_dir_path}/plank/dock.theme"
 	cp -f "${source_theme_root_dir_path}/src/plank/dock${append_else_light,,}.theme" "${target_theme_dir_path}/plank/dock.theme"
 
 
@@ -471,11 +471,11 @@ __EOF__
 	## theme / cinnamon
 	##
 
-	util_error_echo
-	util_error_echo "### theme / cinnamon"
+	util_debug_echo
+	util_debug_echo "### theme / cinnamon"
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}/cinnamon"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/cinnamon"
 	mkdir -p "${target_theme_dir_path}/cinnamon"
 
 
@@ -550,7 +550,7 @@ mod_theme_build_all () {
 
 mod_tmp_clean () {
 
-	util_error_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
+	util_debug_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
 	rm -rf "${THE_MASTER_TMP_DIR_PATH}"
 
 	return 0
@@ -581,26 +581,26 @@ mod_build_essential_for_sassc () {
 
 
 
-	util_error_echo
-	util_error_echo "##"
-	util_error_echo "## sassc needs to be installed to generate the css."
-	util_error_echo "##"
-	util_error_echo
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## sassc needs to be installed to generate the css."
+	util_debug_echo "##"
+	util_debug_echo
 
 	if is_command_exist "zypper"; then
-		util_error_echo "sudo zypper in sassc"
+		util_debug_echo "sudo zypper in sassc"
 		sudo zypper in sassc
 	elif is_command_exist "apt-get"; then
-		util_error_echo "sudo apt-get install sassc"
+		util_debug_echo "sudo apt-get install sassc"
 		sudo apt-get install sassc
 	elif is_command_exist "dnf"; then
-		util_error_echo "sudo dnf install sassc"
+		util_debug_echo "sudo dnf install sassc"
 		sudo dnf install sassc
 	elif is_command_exist "dnf"; then
-		util_error_echo "sudo dnf install sassc"
+		util_debug_echo "sudo dnf install sassc"
 		sudo dnf install sassc
 	elif is_command_exist "pacman"; then
-		util_error_echo "sudo pacman -S --noconfirm --asdeps sassc"
+		util_debug_echo "sudo pacman -S --noconfirm --asdeps sassc"
 		sudo pacman -S --noconfirm --asdeps sassc
 	fi
 
