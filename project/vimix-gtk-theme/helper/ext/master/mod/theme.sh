@@ -128,14 +128,14 @@ mod_theme_build_core () {
 
 
 	local append_else_dark
-	if [ theme_bright_name = 'dark' ]; then
-		append_else_dark="$(mod_fix_theme_bright_name "dark")"
+	if [ "${theme_bright_name}" = 'dark' ]; then
+		append_else_dark="$(mod_append_theme_bright_name "dark")"
 	fi
 
 
 	local append_else_light
-	if ! [ theme_bright_name = 'dark' ]; then
-		append_else_light="$(mod_fix_theme_bright_name "light")"
+	if [ "${theme_bright_name}" != 'dark' ]; then
+		append_else_light="$(mod_append_theme_bright_name "light")"
 	fi
 
 
@@ -298,8 +298,8 @@ __EOF__
 	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common"/*.rc "${target_theme_dir_path}/gtk-2.0"
 
 	util_error_echo
-	util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark}"/. "${target_theme_dir_path}/gtk-2.0/assets"
-	cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark}"/. "${target_theme_dir_path}/gtk-2.0/assets"
+	util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark,,}"/. "${target_theme_dir_path}/gtk-2.0/assets"
+	cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark,,}"/. "${target_theme_dir_path}/gtk-2.0/assets"
 
 	util_error_echo
 	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/gtkrc${append_theme_bright_name,,}${append_theme_color_name,,}" "${target_theme_dir_path}/gtk-2.0/gtkrc"
@@ -446,8 +446,8 @@ __EOF__
 
 
 	util_error_echo
-	util_error_echo cp -rf "${source_theme_root_dir_path}/src/unity/." "${target_theme_dir_path}/unity"
-	cp -rf "${source_theme_root_dir_path}/src/unity/." "${target_theme_dir_path}/unity"
+	util_error_echo cp -rf "${source_theme_root_dir_path}/src/unity"/. "${target_theme_dir_path}/unity"
+	cp -rf "${source_theme_root_dir_path}/src/unity"/. "${target_theme_dir_path}/unity"
 
 
 	##
@@ -461,6 +461,9 @@ __EOF__
 	util_error_echo mkdir -p "${target_theme_dir_path}/plank"
 	mkdir -p "${target_theme_dir_path}/plank"
 
+	util_error_echo
+	util_error_echo cp -f "${source_theme_root_dir_path}/src/plank/dock${append_else_light,,}.theme" "${target_theme_dir_path}/plank/dock.theme"
+	cp -f "${source_theme_root_dir_path}/src/plank/dock${append_else_light,,}.theme" "${target_theme_dir_path}/plank/dock.theme"
 
 
 

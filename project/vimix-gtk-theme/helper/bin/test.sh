@@ -52,9 +52,12 @@ main_test () {
 
 main_test_theme_build_each () {
 
+	#mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "standard" "compact"
+	#mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "light" "compact"
+	#mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "dark" "compact"
 
-	mod_theme_build_core "${THE_SOURCE_THEME_ROOT_DIR_PATH}" "${THE_TARGET_THEME_ROOT_DIR_PATH}" "vimix" "ruby" "dark" "compact"
 
+	return 0
 
 }
 
