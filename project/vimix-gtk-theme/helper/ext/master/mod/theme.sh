@@ -159,9 +159,11 @@ mod_theme_build_core () {
 
 
 
+
 	#################
 	## Build Start ##
 	#################
+
 
 	##
 	## Remove Old Theme Dir
@@ -173,6 +175,7 @@ mod_theme_build_core () {
 		rm -rf "${target_theme_dir_path}"
 	fi
 
+
 	##
 	## Build Theme Dir
 	##
@@ -181,10 +184,10 @@ mod_theme_build_core () {
 	util_error_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
 
+
 	##
 	## index.theme
 	##
-
 
 	util_error_echo
 	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
@@ -204,6 +207,20 @@ IconTheme=${target_icon_theme_name}
 CursorTheme=${target_cursor_theme_name}
 ButtonLayout=menu:minimize,maximize,close
 __EOF__
+
+
+	##
+	## LICENSE
+	##
+
+	util_error_echo
+	util_error_echo install -Dm644 "${source_theme_root_dir_path}/LICENSE" "${target_theme_dir_path}/LICENSE"
+	install -Dm644 "${source_theme_root_dir_path}/LICENSE" "${target_theme_dir_path}/LICENSE"
+
+	util_error_echo
+	util_error_echo install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
+	install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
+
 
 	return 0
 }
