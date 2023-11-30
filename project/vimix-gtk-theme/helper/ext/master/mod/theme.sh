@@ -125,6 +125,20 @@ mod_theme_build_core () {
 	local target_cursor_theme_name="Vimix-Cursor"
 
 
+
+
+	local append_else_dark
+	if [ theme_bright_name = 'dark' ]; then
+		append_else_dark="$(mod_fix_theme_bright_name "dark")"
+	fi
+
+
+	local append_else_light
+	if ! [ theme_bright_name = 'dark' ]; then
+		append_else_light="$(mod_fix_theme_bright_name "light")"
+	fi
+
+
 	util_debug_echo "asset_root_dir_path=${asset_root_dir_path}"
 
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
@@ -161,6 +175,9 @@ mod_theme_build_core () {
 	util_debug_echo "target_icon_theme_name=${target_icon_theme_name}"
 	util_debug_echo "target_cursor_theme_name=${target_cursor_theme_name}"
 
+
+	util_debug_echo "append_else_dark=${append_else_dark}"
+	util_debug_echo "append_else_light=${append_else_light}"
 
 
 
@@ -242,6 +259,9 @@ __EOF__
 	##
 
 	util_error_echo
+	util_error_echo "### theme / gtk2"
+
+	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0"
 	mkdir -p "${target_theme_dir_path}/gtk-2.0"
 
@@ -250,18 +270,24 @@ __EOF__
 	mkdir -p "${target_theme_dir_path}/gtk-2.0/assets"
 
 	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common/"*.rc "${target_theme_dir_path}/gtk-2.0"
-	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common/"*.rc "${target_theme_dir_path}/gtk-2.0"
+	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common"/*.rc "${target_theme_dir_path}/gtk-2.0"
+	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common"/*.rc "${target_theme_dir_path}/gtk-2.0"
 
 	util_error_echo
-	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/common/"*.rc "${target_theme_dir_path}/gtk-2.0"
-	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix"*.rc "${target_theme_dir_path}/gtk-2.0"
+	util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark}"/. "${target_theme_dir_path}/gtk-2.0/assets"
+	cp -rf "${source_theme_root_dir_path}/src/gtk-2.0/assets/vimix${append_theme_color_name,,}/assets${append_else_dark}"/. "${target_theme_dir_path}/gtk-2.0/assets"
 
+	util_error_echo
+	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk-2.0/gtkrc${append_theme_bright_name,,}${append_theme_color_name,,}" "${target_theme_dir_path}/gtk-2.0/gtkrc"
+	cp -f "${source_theme_root_dir_path}/src/gtk-2.0/gtkrc${append_theme_bright_name,,}${append_theme_color_name,,}" "${target_theme_dir_path}/gtk-2.0/gtkrc"
 
 
 	##
 	## theme / gtk3
 	##
+
+	util_error_echo
+	util_error_echo "### theme / gtk3"
 
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-3.0"
@@ -275,6 +301,9 @@ __EOF__
 	##
 
 	util_error_echo
+	util_error_echo "### theme / gtk4"
+
+	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-4.0"
 	mkdir -p "${target_theme_dir_path}/gtk-4.0"
 
@@ -284,6 +313,9 @@ __EOF__
 	##
 	## theme / gnome-shell
 	##
+
+	util_error_echo
+	util_error_echo "### theme / gnome-shell"
 
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/gnome-shell"
@@ -297,6 +329,9 @@ __EOF__
 	##
 
 	util_error_echo
+	util_error_echo "### theme / metacity"
+
+	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/metacity-1"
 	mkdir -p "${target_theme_dir_path}/metacity-1"
 
@@ -308,6 +343,9 @@ __EOF__
 	##
 
 	util_error_echo
+	util_error_echo "### theme / xfwm4"
+
+	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/xfwm4"
 	mkdir -p "${target_theme_dir_path}/xfwm4"
 
@@ -317,6 +355,9 @@ __EOF__
 	##
 	## theme / unity
 	##
+
+	util_error_echo
+	util_error_echo "### theme / unity"
 
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/unity"
@@ -333,6 +374,9 @@ __EOF__
 	##
 
 	util_error_echo
+	util_error_echo "### theme / plank"
+
+	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/plank"
 	mkdir -p "${target_theme_dir_path}/plank"
 
@@ -342,6 +386,9 @@ __EOF__
 	##
 	## theme / cinnamon
 	##
+
+	util_error_echo
+	util_error_echo "### theme / cinnamon"
 
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}/cinnamon"
