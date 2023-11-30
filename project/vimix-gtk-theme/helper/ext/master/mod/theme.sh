@@ -64,6 +64,8 @@ mod_append_theme_size_name () {
 
 mod_theme_build_core () {
 
+	local asset_root_dir_path="${THE_MASTER_ASSET_DIR_PATH}"
+
 	local source_theme_root_dir_path="${1}"
 	local target_theme_root_dir_path="${2}"
 
@@ -122,6 +124,8 @@ mod_theme_build_core () {
 	fi
 	local target_cursor_theme_name="Vimix-Cursor"
 
+
+	util_debug_echo "asset_root_dir_path=${asset_root_dir_path}"
 
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
 	util_debug_echo "target_theme_root_dir_path=${target_theme_root_dir_path}"
@@ -183,6 +187,14 @@ mod_theme_build_core () {
 	util_error_echo
 	util_error_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
+
+
+	## README
+	##
+
+	util_error_echo
+	util_error_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
+	install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
 
 
 	##
