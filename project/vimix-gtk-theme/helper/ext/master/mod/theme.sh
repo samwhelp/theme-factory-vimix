@@ -293,7 +293,13 @@ __EOF__
 	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-3.0"
 	mkdir -p "${target_theme_dir_path}/gtk-3.0"
 
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-3.0/assets"
+	mkdir -p "${target_theme_dir_path}/gtk-3.0/assets"
 
+	util_error_echo
+	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-3.0/assets"
+	cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-3.0/assets"
 
 
 	##
