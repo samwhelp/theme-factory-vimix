@@ -231,20 +231,24 @@ mod_theme_build_all () {
 
 	local target_theme_build_color_list=${OPT_TARGET_THEME_BUILD_COLOR_LIST[@]:=${THE_TARGET_THEME_BUILD_COLOR_LIST[@]}}
 	local target_theme_build_bright_list=${OPT_TARGET_THEME_BUILD_BRIGHT_LIST[@]:=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}}
+	local target_theme_build_size_list=${OPT_TARGET_THEME_BUILD_SIZE_LIST[@]:=${THE_TARGET_THEME_BUILD_SIZE_LIST[@]}}
 
 
 	local theme_main_name="${THE_TARGET_THEME_BUILD_MAIN_NAME:=${THE_TARGET_THEME_BUILD_MAIN_NAME}}"
 	local theme_color_name
 	local theme_bright_name
+	local theme_size_name
 
 	for theme_color_name in ${target_theme_build_color_list[@]}; do
 		for theme_bright_name in ${target_theme_build_bright_list[@]}; do
-			util_error_echo
-			util_error_echo "##"
-			util_error_echo "##" mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}"
-			util_error_echo "##"
-			util_error_echo
-			mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}"
+			for theme_size_name in ${target_theme_build_size_list[@]}; do
+				util_error_echo
+				util_error_echo "##"
+				util_error_echo "##" mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
+				util_error_echo "##"
+				util_error_echo
+				mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
+			done
 		done
 	done
 
