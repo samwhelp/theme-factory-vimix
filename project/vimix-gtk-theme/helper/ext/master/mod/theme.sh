@@ -235,6 +235,18 @@ __EOF__
 	install -Dm644 "${source_theme_root_dir_path}/AUTHORS" "${target_theme_dir_path}/AUTHORS"
 
 
+	##
+	## gtk2
+	##
+
+	util_error_echo
+	util_error_echo mkdir -p "${target_theme_dir_path}/gtk-2.0"
+	mkdir -p "${target_theme_dir_path}/gtk-2.0"
+
+
+
+
+
 	return 0
 }
 
