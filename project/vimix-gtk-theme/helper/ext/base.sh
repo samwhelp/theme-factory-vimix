@@ -206,13 +206,22 @@ base_var_init () {
 
 
 	##
-	## ## Master Path / Target / Build Option
+	## ## Master / Target / Build Option
 	##
 
 	readonly THE_TARGET_THEME_BUILD_MAIN_NAME="vimix"
 	readonly THE_TARGET_THEME_BUILD_COLOR_LIST=("amethyst" "beryl" "doder" "ruby" "jade" "grey")
 	readonly THE_TARGET_THEME_BUILD_BRIGHT_LIST=("standard" "light" "dark")
 	readonly THE_TARGET_THEME_BUILD_SIZE_LIST=("standard" "compact")
+
+
+	##
+	## ## Master / Target / Scss Compiler
+	##
+
+	readonly THE_SCSS_COMPILE_CMD="sassc"
+	readonly THE_SCSS_COMPILE_OPT="-M -t expanded"
+
 
 	return 0
 
@@ -433,7 +442,7 @@ base_var_dump () {
 
 	util_debug_echo
 	util_debug_echo "##"
-	util_debug_echo "## ## Master Path / Target / Build Option"
+	util_debug_echo "## ## Master / Target / Build Option"
 	util_debug_echo "##"
 	util_debug_echo
 
@@ -443,6 +452,17 @@ base_var_dump () {
 	util_debug_echo "THE_TARGET_THEME_BUILD_BRIGHT_LIST=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}"
 	util_debug_echo "THE_TARGET_THEME_BUILD_SIZE_LIST=${THE_TARGET_THEME_BUILD_SIZE_LIST[@]}"
 	util_debug_echo
+
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ##  Master / Target / Scss Compiler"
+	util_debug_echo "##"
+	util_debug_echo
+
+	util_debug_echo "THE_SCSS_COMPILE_CMD=${THE_SCSS_COMPILE_CMD}"
+	util_debug_echo "THE_SCSS_COMPILE_OPT=${THE_SCSS_COMPILE_OPT}"
 
 
 
