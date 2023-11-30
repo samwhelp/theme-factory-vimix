@@ -86,6 +86,14 @@ mod_theme_build_core () {
 		theme_color_name=""
 	fi
 
+	if [ "${theme_bright_name}" = "standard" ]; then
+		theme_bright_name=""
+	fi
+
+	if [ "${theme_size_name}" = "standard" ]; then
+		theme_size_name=""
+	fi
+
 
 	local real_theme_main_name="$(mod_fix_theme_main_name "${theme_main_name}")"
 	local real_theme_bright_name="$(mod_fix_theme_bright_name "${theme_bright_name}")"
