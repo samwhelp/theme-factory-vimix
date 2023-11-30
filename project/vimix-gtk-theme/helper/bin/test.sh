@@ -45,7 +45,7 @@ main_test () {
 
 	mod_main_signal_bind
 
-	sleep 10;
+	#sleep 10;
 
 }
 
