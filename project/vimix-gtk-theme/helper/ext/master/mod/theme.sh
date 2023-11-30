@@ -142,7 +142,8 @@ mod_theme_build_core () {
 
 
 	local is_building_tweaks="${OPT_BUILDING_TWEAKS:=${THE_BUILDING_TWEAKS}}"
-
+	local is_building_flat="${OPT_BUILDING_FLAT:=${THE_BUILDING_FLAT}}"
+	local is_building_grey="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
 
 
 
@@ -195,6 +196,8 @@ mod_theme_build_core () {
 
 
 	util_debug_echo "is_building_tweaks=${is_building_tweaks}"
+	util_debug_echo "is_building_flat=${is_building_flat}"
+	util_debug_echo "is_building_grey=${is_building_grey}"
 
 
 	util_debug_echo "scss_compile_cmd=${scss_compile_cmd}"
@@ -325,6 +328,20 @@ __EOF__
 
 
 
+	if [ "${is_building_flat}" != "true" ]; then
+		if [ "${is_building_grey}" = "true" ]; then
+			util_error_echo
+			util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
+			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
+		else
+			util_error_echo
+			util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
+			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
+		fi
+	fi
+
+
+
 	util_error_echo
 	util_error_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
 	cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
@@ -352,9 +369,11 @@ __EOF__
 
 
 
+
 	util_error_echo
 	util_error_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-3.0/thumbnail.png"
 	cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-3.0/thumbnail.png"
+
 
 
 
