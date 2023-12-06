@@ -416,6 +416,7 @@ __EOF__
 	util_debug_echo mkdir -p "${target_theme_dir_path}/metacity-1"
 	mkdir -p "${target_theme_dir_path}/metacity-1"
 
+
 	util_debug_echo
 	util_debug_echo cp -f "${source_theme_root_dir_path}/src/metacity-1/assets"/*.png "${target_theme_dir_path}/metacity-1"
 	cp -f "${source_theme_root_dir_path}/src/metacity-1/assets"/*.png "${target_theme_dir_path}/metacity-1"
@@ -438,6 +439,7 @@ __EOF__
 
 
 
+
 	##
 	## theme / xfwm4
 	##
@@ -449,6 +451,10 @@ __EOF__
 	util_debug_echo mkdir -p "${target_theme_dir_path}/xfwm4"
 	mkdir -p "${target_theme_dir_path}/xfwm4"
 
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/xfwm4/themerc${append_theme_bright_name,,}" "${target_theme_dir_path}/xfwm4/themerc"
+	install -Dm644 "${source_theme_root_dir_path}/src/xfwm4/themerc${append_theme_bright_name,,}" "${target_theme_dir_path}/xfwm4/themerc"
 
 
 
