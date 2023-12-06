@@ -221,6 +221,13 @@ mod_theme_build_core () {
 
 
 	##
+	## Build Tweaks
+	##
+
+	mod_build_tweaks  "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
+
+
+	##
 	## Remove Old Theme Dir
 	##
 
@@ -229,13 +236,6 @@ mod_theme_build_core () {
 		util_debug_echo rm -rf "${target_theme_dir_path}"
 		rm -rf "${target_theme_dir_path}"
 	fi
-
-
-	##
-	## Build Tweaks
-	##
-
-	mod_build_tweaks
 
 
 	##
@@ -836,10 +836,118 @@ mod_build_essential_for_sassc () {
 
 mod_build_tweaks () {
 
+	local source_theme_root_dir_path="${1}"
+	local target_theme_root_dir_path="${2}"
+
+	##
+	## Vimix-Ruby-Dark-Compact
+	## ${main}-${color}-${bright}-${size}
+	##
+
+	local theme_main_name="${3}"
+	local theme_color_name="${4}"
+	local theme_bright_name="${5}"
+	local theme_size_name="${6}"
+
+
+	mod_build_tweaks_create_temp "${source_theme_root_dir_path}"
+
+	mod_build_tweaks_for_flat "${source_theme_root_dir_path}"
+
+	mod_build_tweaks_for_mix "${source_theme_root_dir_path}"
+
+	mod_build_tweaks_for_compact "${source_theme_root_dir_path}"
+
+	mod_build_tweaks_for_translucent "${source_theme_root_dir_path}"
+
+	mod_build_tweaks_for_theme_color "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
 
 	return 0
 }
 
+
+mod_build_tweaks_create_temp () {
+
+	local source_theme_root_dir_path="${1}"
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/_sass/_tweaks.scss" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+	install -Dm644 "${source_theme_root_dir_path}/src/_sass/_tweaks.scss" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+
+}
+
+
+mod_build_tweaks_for_flat () {
+
+	local source_theme_root_dir_path="${1}"
+
+	util_debug_echo
+	util_debug_echo sed -i "/\$titlebutton:/s/default/flat/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+	sed -i "/\$titlebutton:/s/default/flat/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+
+}
+
+
+mod_build_tweaks_for_mix () {
+
+	local source_theme_root_dir_path="${1}"
+
+	util_debug_echo
+	util_debug_echo sed -i "/\$mixstate:/s/default/main/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+	sed -i "/\$mixstate:/s/default/main/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+
+}
+
+
+mod_build_tweaks_for_compact () {
+
+	local source_theme_root_dir_path="${1}"
+
+	util_debug_echo
+	util_debug_echo sed -i "/\$compact:/s/false/true/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+	sed -i "/\$compact:/s/false/true/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+
+}
+
+
+mod_build_tweaks_for_translucent () {
+
+	local source_theme_root_dir_path="${1}"
+
+	util_debug_echo
+	util_debug_echo sed -i "/\$translucent:/s/false/true/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+	sed -i "/\$translucent:/s/false/true/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+
+}
+
+
+mod_build_tweaks_for_theme_color () {
+
+	local source_theme_root_dir_path="${1}"
+	local target_theme_root_dir_path="${2}"
+
+	##
+	## Vimix-Ruby-Dark-Compact
+	## ${main}-${color}-${bright}-${size}
+	##
+
+	local theme_main_name="${3}"
+	local theme_color_name="${4}"
+	local theme_bright_name="${5}"
+	local theme_size_name="${6}"
+
+
+	if [[ "${theme_color_name}" == "doder" ]]; then
+		return 0
+	fi
+
+
+
+	util_debug_echo
+	util_debug_echo sed -i "/\$theme:/s/doder/${theme_color_name}/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+	sed -i "/\$theme:/s/doder/${theme_color_name}/" "${source_theme_root_dir_path}/src/_sass/_tweaks-temp.scss"
+
+}
 
 
 
