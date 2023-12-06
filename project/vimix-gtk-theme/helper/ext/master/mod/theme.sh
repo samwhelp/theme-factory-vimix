@@ -402,6 +402,16 @@ __EOF__
 	util_debug_echo mkdir -p "${target_theme_dir_path}/gnome-shell"
 	mkdir -p "${target_theme_dir_path}/gnome-shell"
 
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gnome-shell/assets"
+	mkdir -p "${target_theme_dir_path}/gnome-shell/assets"
+
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/pad-osd.css" "${target_theme_dir_path}/gnome-shell/pad-osd.css"
+	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/pad-osd.css" "${target_theme_dir_path}/gnome-shell/pad-osd.css"
+
+
 
 
 
