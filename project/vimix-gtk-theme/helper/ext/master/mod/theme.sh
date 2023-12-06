@@ -146,6 +146,8 @@ mod_theme_build_core () {
 	local is_building_grey="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
 	local is_building_mix="${OPT_BUILDING_MIX:=${THE_BUILDING_MIX}}"
 	local is_building_translucent="${OPT_BUILDING_TRANSLUCENT:=${THE_BUILDING_TRANSLUCENT}}"
+	local is_building_compact="${OPT_BUILDING_COMPACT:=${THE_BUILDING_COMPACT}}"
+	local is_building_accent="${OPT_BUILDING_ACCENT:=${THE_BUILDING_ACCENT}}"
 
 
 
@@ -209,6 +211,8 @@ mod_theme_build_core () {
 	util_debug_echo "is_building_grey=${is_building_grey}"
 	util_debug_echo "is_building_mix=${is_building_mix}"
 	util_debug_echo "is_building_translucent=${is_building_translucent}"
+	util_debug_echo "is_building_compact=${is_building_compact}"
+	util_debug_echo "is_building_accent=${is_building_accent}"
 
 
 
@@ -858,17 +862,47 @@ mod_build_tweaks () {
 	local theme_size_name="${6}"
 
 
+	##
+	## option
+	##
+
+	local is_building_tweaks="${OPT_BUILDING_TWEAKS:=${THE_BUILDING_TWEAKS}}"
+	local is_building_flat="${OPT_BUILDING_FLAT:=${THE_BUILDING_FLAT}}"
+	local is_building_grey="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
+	local is_building_mix="${OPT_BUILDING_MIX:=${THE_BUILDING_MIX}}"
+	local is_building_translucent="${OPT_BUILDING_TRANSLUCENT:=${THE_BUILDING_TRANSLUCENT}}"
+	local is_building_compact="${OPT_BUILDING_COMPACT:=${THE_BUILDING_COMPACT}}"
+	local is_building_accent="${OPT_BUILDING_ACCENT:=${THE_BUILDING_ACCENT}}"
+
+
+
 	mod_build_tweaks_create_temp "${source_theme_root_dir_path}"
 
-	mod_build_tweaks_for_flat "${source_theme_root_dir_path}"
 
-	mod_build_tweaks_for_mix "${source_theme_root_dir_path}"
+	if [[ "${is_building_flat}" == "true" ]]; then
+		mod_build_tweaks_for_flat "${source_theme_root_dir_path}"
+	fi
 
-	mod_build_tweaks_for_compact "${source_theme_root_dir_path}"
 
-	mod_build_tweaks_for_translucent "${source_theme_root_dir_path}"
+	if [[ "${is_building_mix}" == "true" ]]; then
+		mod_build_tweaks_for_mix "${source_theme_root_dir_path}"
+	fi
 
-	mod_build_tweaks_for_theme_color "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
+
+	if [[ "${is_building_compact}" == "true" ]]; then
+		mod_build_tweaks_for_compact "${source_theme_root_dir_path}"
+	fi
+
+
+	if [[ "${is_building_accent}" == "true" ]]; then
+		mod_build_tweaks_for_theme_color "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
+	fi
+
+
+	if [[ "${is_building_translucent}" == "true" ]]; then
+		mod_build_tweaks_for_translucent "${source_theme_root_dir_path}"
+	fi
+
 
 	return 0
 }

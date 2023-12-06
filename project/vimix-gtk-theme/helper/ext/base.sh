@@ -220,6 +220,9 @@ base_var_init () {
 	readonly THE_BUILDING_GREY="false"
 	readonly THE_BUILDING_MIX="false"
 	readonly THE_BUILDING_TRANSLUCENT="false"
+	readonly THE_BUILDING_COMPACT="false"
+	readonly THE_BUILDING_ACCENT="false"
+
 
 
 
@@ -474,6 +477,8 @@ base_var_dump () {
 	util_debug_echo "THE_BUILDING_GREY=${THE_BUILDING_GREY}"
 	util_debug_echo "THE_BUILDING_MIX=${THE_BUILDING_MIX}"
 	util_debug_echo "THE_BUILDING_TRANSLUCENT=${THE_BUILDING_TRANSLUCENT}"
+	util_debug_echo "THE_BUILDING_COMPACT=${THE_BUILDING_COMPACT}"
+	util_debug_echo "THE_BUILDING_ACCENT=${THE_BUILDING_ACCENT}"
 	util_debug_echo
 
 
