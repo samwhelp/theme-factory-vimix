@@ -438,6 +438,16 @@ __EOF__
 	util_debug_echo ln -srf "${target_theme_dir_path}/gnome-shell/assets/no-events.svg" "${target_theme_dir_path}/gnome-shell/no-events.svg"
 	ln -srf "${target_theme_dir_path}/gnome-shell/assets/no-events.svg" "${target_theme_dir_path}/gnome-shell/no-events.svg"
 
+	util_debug_echo
+	util_debug_echo ln -srf "${target_theme_dir_path}/gnome-shell/assets/process-working.svg" "${target_theme_dir_path}/gnome-shell/process-working.svg"
+	ln -srf "${target_theme_dir_path}/gnome-shell/assets/process-working.svg" "${target_theme_dir_path}/gnome-shell/process-working.svg"
+
+	util_debug_echo
+	util_debug_echo ln -srf "${target_theme_dir_path}/gnome-shell/assets/no-notifications.svg" "${target_theme_dir_path}/gnome-shell/no-notifications.svg"
+	ln -srf "${target_theme_dir_path}/gnome-shell/assets/no-notifications.svg" "${target_theme_dir_path}/gnome-shell/no-notifications.svg"
+
+
+
 
 
 
