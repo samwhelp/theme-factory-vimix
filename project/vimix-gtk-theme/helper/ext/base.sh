@@ -219,7 +219,7 @@ base_var_init () {
 	readonly THE_BUILDING_FLAT="false"
 	readonly THE_BUILDING_GREY="false"
 	readonly THE_BUILDING_MIX="false"
-	readonly THE_BUILDING_TRANSLUCENT="false"
+	readonly THE_BUILDING_TRANSLUCENT="true"
 	readonly THE_BUILDING_COMPACT="false"
 	readonly THE_BUILDING_ACCENT="false"
 

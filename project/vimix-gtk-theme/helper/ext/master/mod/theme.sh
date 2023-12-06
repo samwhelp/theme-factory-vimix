@@ -141,17 +141,6 @@ mod_theme_build_core () {
 
 
 
-	local is_building_tweaks="${OPT_BUILDING_TWEAKS:=${THE_BUILDING_TWEAKS}}"
-	local is_building_flat="${OPT_BUILDING_FLAT:=${THE_BUILDING_FLAT}}"
-	local is_building_grey="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
-	local is_building_mix="${OPT_BUILDING_MIX:=${THE_BUILDING_MIX}}"
-	local is_building_translucent="${OPT_BUILDING_TRANSLUCENT:=${THE_BUILDING_TRANSLUCENT}}"
-	local is_building_compact="${OPT_BUILDING_COMPACT:=${THE_BUILDING_COMPACT}}"
-	local is_building_accent="${OPT_BUILDING_ACCENT:=${THE_BUILDING_ACCENT}}"
-
-
-
-
 	local scss_compile_cmd="${OPT_SCSS_COMPILE_CMD:=${THE_SCSS_COMPILE_CMD}}"
 	local scss_compile_opt="${OPT_SCSS_COMPILE_OPT:=${THE_SCSS_COMPILE_OPT}}"
 	local scss_compile="${scss_compile_cmd} ${scss_compile_opt}"
@@ -206,6 +195,36 @@ mod_theme_build_core () {
 
 
 
+	util_debug_echo "scss_compile_cmd=${scss_compile_cmd}"
+	util_debug_echo "scss_compile_opt=${scss_compile_opt}"
+	util_debug_echo "scss_compile=${scss_compile}"
+
+
+	util_debug_echo "gnome_shell_version=${gnome_shell_version}"
+
+
+	##################
+	## Build Tweaks ##
+	##################
+
+	##
+	## Build Tweaks / Option
+	##
+
+
+	local is_building_flat="${OPT_BUILDING_FLAT:=${THE_BUILDING_FLAT}}"
+	local is_building_grey="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
+	local is_building_mix="${OPT_BUILDING_MIX:=${THE_BUILDING_MIX}}"
+	local is_building_translucent="${OPT_BUILDING_TRANSLUCENT:=${THE_BUILDING_TRANSLUCENT}}"
+	local is_building_compact="${OPT_BUILDING_COMPACT:=${THE_BUILDING_COMPACT}}"
+	local is_building_accent="${OPT_BUILDING_ACCENT:=${THE_BUILDING_ACCENT}}"
+
+
+	mod_build_tweaks  "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
+
+
+	local is_building_tweaks="${OPT_BUILDING_TWEAKS:=${THE_BUILDING_TWEAKS}}"
+
 	util_debug_echo "is_building_tweaks=${is_building_tweaks}"
 	util_debug_echo "is_building_flat=${is_building_flat}"
 	util_debug_echo "is_building_grey=${is_building_grey}"
@@ -217,26 +236,9 @@ mod_theme_build_core () {
 
 
 
-	util_debug_echo "scss_compile_cmd=${scss_compile_cmd}"
-	util_debug_echo "scss_compile_opt=${scss_compile_opt}"
-	util_debug_echo "scss_compile=${scss_compile}"
-
-
-	util_debug_echo "gnome_shell_version=${gnome_shell_version}"
-
-
-
-
 	#################
 	## Build Start ##
 	#################
-
-
-	##
-	## Build Tweaks
-	##
-
-	mod_build_tweaks  "${source_theme_root_dir_path}" "${target_theme_root_dir_path}" "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}" "${theme_size_name}"
 
 
 	##
@@ -863,7 +865,7 @@ mod_build_tweaks () {
 
 
 	##
-	## option
+	## build option
 	##
 
 	local is_building_tweaks="${OPT_BUILDING_TWEAKS:=${THE_BUILDING_TWEAKS}}"
@@ -876,7 +878,11 @@ mod_build_tweaks () {
 
 
 
-	mod_build_tweaks_create_temp "${source_theme_root_dir_path}"
+	if [[ "${is_building_flat}" == "true" || "${is_building_mix}" == "true" || "${is_building_accent}" == "true" || "${is_building_compact}" == "true" || "${is_building_translucent}" == "true" ]]; then
+		mod_build_tweaks_create_temp "${source_theme_root_dir_path}"
+		OPT_BUILDING_TWEAKS="true"
+		#THE_BUILDING_TWEAKS="true"
+	fi
 
 
 	if [[ "${is_building_flat}" == "true" ]]; then
@@ -889,7 +895,7 @@ mod_build_tweaks () {
 	fi
 
 
-	if [[ "${is_building_compact}" == "true" ]]; then
+	if [[ "${is_building_compact}" == "true" && "${theme_size_name}" == "compact" ]]; then
 		mod_build_tweaks_for_compact "${source_theme_root_dir_path}"
 	fi
 
