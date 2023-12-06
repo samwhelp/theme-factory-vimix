@@ -434,6 +434,13 @@ __EOF__
 	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/toggle-on${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/toggle-on.svg"
 
 
+	util_debug_echo
+	util_debug_echo ln -srf "${target_theme_dir_path}/gnome-shell/assets/no-events.svg" "${target_theme_dir_path}/gnome-shell/no-events.svg"
+	ln -srf "${target_theme_dir_path}/gnome-shell/assets/no-events.svg" "${target_theme_dir_path}/gnome-shell/no-events.svg"
+
+
+
+
 	##
 	## theme / metacity
 	##
