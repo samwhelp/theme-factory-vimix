@@ -412,7 +412,26 @@ __EOF__
 	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/pad-osd.css" "${target_theme_dir_path}/gnome-shell/pad-osd.css"
 
 
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gnome-shell/common-assets"/. "${target_theme_dir_path}/gnome-shell/assets"
+	cp -rf "${source_theme_root_dir_path}/src/gnome-shell/common-assets"/. "${target_theme_dir_path}/gnome-shell/assets"
 
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gnome-shell/assets${append_else_dark}"/*.svg "${target_theme_dir_path}/gnome-shell/assets"
+	cp -rf "${source_theme_root_dir_path}/src/gnome-shell/assets${append_else_dark}"/*.svg "${target_theme_dir_path}/gnome-shell/assets"
+
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/checkbox${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/checkbox.svg"
+	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/checkbox${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/checkbox.svg"
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/more-results${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/more-results.svg"
+	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/more-results${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/more-results.svg"
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/toggle-on${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/toggle-on.svg"
+	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/toggle-on${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/toggle-on.svg"
 
 
 	##
