@@ -416,6 +416,25 @@ __EOF__
 	util_debug_echo mkdir -p "${target_theme_dir_path}/metacity-1"
 	mkdir -p "${target_theme_dir_path}/metacity-1"
 
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/metacity-1/assets"/*.png "${target_theme_dir_path}/metacity-1"
+	cp -f "${source_theme_root_dir_path}/src/metacity-1/assets"/*.png "${target_theme_dir_path}/metacity-1"
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/metacity-1/metacity-theme-3.xml" "${target_theme_dir_path}/metacity-1/metacity-theme-3.xml"
+	install -Dm644 "${source_theme_root_dir_path}/src/metacity-1/metacity-theme-3.xml" "${target_theme_dir_path}/metacity-1/metacity-theme-3.xml"
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/metacity-1/metacity-theme-1${append_theme_bright_name,,}${append_theme_color_name,,}.xml" "${target_theme_dir_path}/metacity-1/metacity-theme-1.xml"
+	install -Dm644 "${source_theme_root_dir_path}/src/metacity-1/metacity-theme-1${append_theme_bright_name,,}${append_theme_color_name,,}.xml" "${target_theme_dir_path}/metacity-1/metacity-theme-1.xml"
+
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/metacity-1/thumbnail${append_theme_bright_name,,}.png" "${target_theme_dir_path}/metacity-1/thumbnail.png"
+	install -Dm644 "${source_theme_root_dir_path}/src/metacity-1/thumbnail${append_theme_bright_name,,}.png" "${target_theme_dir_path}/metacity-1/thumbnail.png"
+
+	util_debug_echo
+	util_debug_echo ln -srf "${target_theme_dir_path}/metacity-1/metacity-theme-1.xml" "${target_theme_dir_path}/metacity-1/metacity-theme-2.xml"
+	ln -srf "${target_theme_dir_path}/metacity-1/metacity-theme-1.xml" "${target_theme_dir_path}/metacity-1/metacity-theme-2.xml"
 
 
 
