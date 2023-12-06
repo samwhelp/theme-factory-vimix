@@ -220,8 +220,8 @@ base_var_init () {
 	readonly THE_BUILDING_GREY="false"
 	readonly THE_BUILDING_MIX="false"
 	readonly THE_BUILDING_TRANSLUCENT="true"
-	readonly THE_BUILDING_COMPACT="false"
-	readonly THE_BUILDING_ACCENT="false"
+	readonly THE_BUILDING_COMPACT="true"
+	readonly THE_BUILDING_ACCENT="true"
 
 
 
