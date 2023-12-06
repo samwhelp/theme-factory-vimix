@@ -515,6 +515,47 @@ __EOF__
 	util_debug_echo mkdir -p "${target_theme_dir_path}/cinnamon"
 	mkdir -p "${target_theme_dir_path}/cinnamon"
 
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/cinnamon/assets"
+	mkdir -p "${target_theme_dir_path}/cinnamon/assets"
+
+
+	if [ "${is_building_tweaks}" = "true" ]; then
+		util_debug_echo
+		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/cinnamon/cinnamon${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/cinnamon/cinnamon.css"
+		${scss_compile} "${source_theme_root_dir_path}/src/cinnamon/cinnamon${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/cinnamon/cinnamon.css"
+	else
+		util_debug_echo
+		util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/cinnamon/cinnamon${append_theme_bright_name,,}.css" "${target_theme_dir_path}/cinnamon/cinnamon.css"
+		install -Dm644 "${source_theme_root_dir_path}/src/cinnamon/cinnamon${append_theme_bright_name,,}.css" "${target_theme_dir_path}/cinnamon/cinnamon.css"
+	fi
+
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/common-assets"/. "${target_theme_dir_path}/cinnamon/assets"
+	cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/common-assets"/. "${target_theme_dir_path}/cinnamon/assets"
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/checkbox"/*.svg "${target_theme_dir_path}/cinnamon/assets/checkbox"
+	cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/checkbox"/*.svg "${target_theme_dir_path}/cinnamon/assets/checkbox"
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/menu"/*.svg "${target_theme_dir_path}/cinnamon/assets/menu"
+	cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/menu"/*.svg "${target_theme_dir_path}/cinnamon/assets/menu"
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/misc"/*.svg "${target_theme_dir_path}/cinnamon/assets/misc"
+	cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/misc"/*.svg "${target_theme_dir_path}/cinnamon/assets/misc"
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/switch"/*.svg "${target_theme_dir_path}/cinnamon/assets/switch"
+	cp -rf "${source_theme_root_dir_path}/src/cinnamon/assets${append_theme_color_name,,}/assets${append_else_dark}/switch"/*.svg "${target_theme_dir_path}/cinnamon/assets/switch"
+
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/cinnamon/thumbnail${append_else_dark}${append_theme_color_name,,}.png" "${target_theme_dir_path}/cinnamon/thumbnail.png"
+	cp -rf "${source_theme_root_dir_path}/src/cinnamon/thumbnail${append_else_dark}${append_theme_color_name,,}.png" "${target_theme_dir_path}/cinnamon/thumbnail.png"
+
 
 
 
