@@ -456,6 +456,18 @@ __EOF__
 	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/xfwm4/themerc${append_theme_bright_name,,}" "${target_theme_dir_path}/xfwm4/themerc"
 	install -Dm644 "${source_theme_root_dir_path}/src/xfwm4/themerc${append_theme_bright_name,,}" "${target_theme_dir_path}/xfwm4/themerc"
 
+	if [ "${is_building_grey}" != "true" ]; then
+		util_debug_echo
+		util_debug_echo cp -rf "${source_theme_root_dir_path}/src/xfwm4/assets${append_theme_bright_name,,}${append_theme_color_name,,}"/*png "${target_theme_dir_path}/xfwm4"
+		cp -rf "${source_theme_root_dir_path}/src/xfwm4/assets${append_theme_bright_name,,}${append_theme_color_name,,}"/*png "${target_theme_dir_path}/xfwm4"
+	fi
+
+
+	if [[ "${theme_color_name}" == "" && "${is_building_grey}" == "true" ]]; then
+		util_debug_echo
+		util_debug_echo cp -rf "${source_theme_root_dir_path}/src/xfwm4/assets${append_theme_bright_name,,}-contrast"/*png "${target_theme_dir_path}/xfwm4"
+		cp -rf "${source_theme_root_dir_path}/src/xfwm4/assets${append_theme_bright_name,,}-contrast"/*png "${target_theme_dir_path}/xfwm4"
+	fi
 
 
 	##
