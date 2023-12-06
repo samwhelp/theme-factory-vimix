@@ -232,6 +232,13 @@ mod_theme_build_core () {
 
 
 	##
+	## Build Tweaks
+	##
+
+	mod_build_tweaks
+
+
+	##
 	## Build Theme Dir
 	##
 
@@ -819,4 +826,23 @@ mod_build_essential_for_sassc () {
 
 ##
 ### Tail: Master / Mod / Theme / Build / Essential
+################################################################################
+
+
+################################################################################
+### Head: Master / Mod / Theme / Build / Tweaks
+##
+
+
+mod_build_tweaks () {
+
+
+	return 0
+}
+
+
+
+
+##
+### Tail: Master / Mod / Theme / Build / Tweaks
 ################################################################################
