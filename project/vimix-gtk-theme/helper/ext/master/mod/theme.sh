@@ -144,6 +144,8 @@ mod_theme_build_core () {
 	local is_building_tweaks="${OPT_BUILDING_TWEAKS:=${THE_BUILDING_TWEAKS}}"
 	local is_building_flat="${OPT_BUILDING_FLAT:=${THE_BUILDING_FLAT}}"
 	local is_building_grey="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
+	local is_building_mix="${OPT_BUILDING_MIX:=${THE_BUILDING_MIX}}"
+	local is_building_translucent="${OPT_BUILDING_TRANSLUCENT:=${THE_BUILDING_TRANSLUCENT}}"
 
 
 
@@ -200,9 +202,15 @@ mod_theme_build_core () {
 	util_debug_echo "append_else_light=${append_else_light}"
 
 
+
+
 	util_debug_echo "is_building_tweaks=${is_building_tweaks}"
 	util_debug_echo "is_building_flat=${is_building_flat}"
 	util_debug_echo "is_building_grey=${is_building_grey}"
+	util_debug_echo "is_building_mix=${is_building_mix}"
+	util_debug_echo "is_building_translucent=${is_building_translucent}"
+
+
 
 
 	util_debug_echo "scss_compile_cmd=${scss_compile_cmd}"
