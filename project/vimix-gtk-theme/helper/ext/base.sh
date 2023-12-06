@@ -215,6 +215,11 @@ base_var_init () {
 	readonly THE_TARGET_THEME_BUILD_SIZE_LIST=("standard" "compact")
 
 
+	readonly THE_BUILDING_TWEAKS="false"
+	readonly THE_BUILDING_FLAT="false"
+	readonly THE_BUILDING_GREY="false"
+
+
 	##
 	## ## Master / Target / Scss Compiler
 	##
@@ -438,8 +443,6 @@ base_var_dump () {
 	util_debug_echo
 
 
-
-
 	util_debug_echo
 	util_debug_echo "##"
 	util_debug_echo "## ## Master / Target / Build Option"
@@ -452,6 +455,13 @@ base_var_dump () {
 	util_debug_echo "THE_TARGET_THEME_BUILD_BRIGHT_LIST=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}"
 	util_debug_echo "THE_TARGET_THEME_BUILD_SIZE_LIST=${THE_TARGET_THEME_BUILD_SIZE_LIST[@]}"
 	util_debug_echo
+
+
+	util_debug_echo "THE_BUILDING_TWEAKS=${THE_BUILDING_TWEAKS}"
+	util_debug_echo "THE_BUILDING_FLAT=${THE_BUILDING_FLAT}"
+	util_debug_echo "THE_BUILDING_GREY=${THE_BUILDING_GREY}"
+	util_debug_echo
+
 
 
 
