@@ -49,6 +49,9 @@ option_build () {
 	OPT_BUILDING_GREY="${OPT_BUILDING_GREY:=${THE_BUILDING_GREY}}"
 
 
+	OPT_GNOME_SHELL_VERSION="${OPT_GNOME_SHELL_VERSION:=${THE_GNOME_SHELL_VERSION}}"
+
+
 	##
 	## Option for mod_theme_build_all
 	##

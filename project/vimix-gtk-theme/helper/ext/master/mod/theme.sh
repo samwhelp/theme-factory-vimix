@@ -154,6 +154,11 @@ mod_theme_build_core () {
 
 
 
+	local gnome_shell_version="${OPT_GNOME_SHELL_VERSION:=${THE_GNOME_SHELL_VERSION}}"
+
+
+
+
 	util_debug_echo "asset_root_dir_path=${asset_root_dir_path}"
 
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
@@ -203,6 +208,11 @@ mod_theme_build_core () {
 	util_debug_echo "scss_compile_cmd=${scss_compile_cmd}"
 	util_debug_echo "scss_compile_opt=${scss_compile_opt}"
 	util_debug_echo "scss_compile=${scss_compile}"
+
+
+	util_debug_echo "gnome_shell_version=${gnome_shell_version}"
+
+
 
 
 	#################
@@ -432,6 +442,21 @@ __EOF__
 	util_debug_echo
 	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/toggle-on${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/toggle-on.svg"
 	install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/color-assets/toggle-on${append_theme_color_name,,}.svg" "${target_theme_dir_path}/gnome-shell/assets/toggle-on.svg"
+
+
+
+
+	if [ "${is_building_tweaks}" = "true" ]; then
+		util_debug_echo
+		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gnome-shell/shell-${gnome_shell_version}/gnome-shell${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gnome-shell/gnome-shell.css"
+		${scss_compile} "${source_theme_root_dir_path}/src/gnome-shell/shell-${gnome_shell_version}/gnome-shell${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gnome-shell/gnome-shell.css"
+	else
+		util_debug_echo
+		util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/shell-${gnome_shell_version}/gnome-shell${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gnome-shell/gnome-shell.css"
+		install -Dm644 "${source_theme_root_dir_path}/src/gnome-shell/shell-${gnome_shell_version}/gnome-shell${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gnome-shell/gnome-shell.css"
+	fi
+
+
 
 
 	util_debug_echo

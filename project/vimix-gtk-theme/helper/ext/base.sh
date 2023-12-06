@@ -228,6 +228,15 @@ base_var_init () {
 	readonly THE_SCSS_COMPILE_OPT="-M -t expanded"
 
 
+	##
+	## ## Master / Target / Gnome Shell Version
+	##
+
+	readonly THE_GNOME_SHELL_VERSION="44-0"
+
+
+
+
 	return 0
 
 }
@@ -467,12 +476,24 @@ base_var_dump () {
 
 	util_debug_echo
 	util_debug_echo "##"
-	util_debug_echo "## ##  Master / Target / Scss Compiler"
+	util_debug_echo "## ## Master / Target / Scss Compiler"
 	util_debug_echo "##"
 	util_debug_echo
 
 	util_debug_echo "THE_SCSS_COMPILE_CMD=${THE_SCSS_COMPILE_CMD}"
 	util_debug_echo "THE_SCSS_COMPILE_OPT=${THE_SCSS_COMPILE_OPT}"
+
+
+
+
+	util_debug_echo
+	util_debug_echo "##"
+	util_debug_echo "## ## Master / Target / Gnome Shell Version"
+	util_debug_echo "##"
+	util_debug_echo
+
+	util_debug_echo "THE_GNOME_SHELL_VERSION=${THE_GNOME_SHELL_VERSION}"
+
 
 
 
