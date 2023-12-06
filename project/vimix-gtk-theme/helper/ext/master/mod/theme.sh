@@ -352,6 +352,7 @@ __EOF__
 
 
 
+
 	util_debug_echo
 	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
 	cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-3.0/assets/scalable"
@@ -397,6 +398,65 @@ __EOF__
 	util_debug_echo
 	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-4.0"
 	mkdir -p "${target_theme_dir_path}/gtk-4.0"
+
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}/gtk-4.0/assets"
+	mkdir -p "${target_theme_dir_path}/gtk-4.0/assets"
+
+
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-4.0/assets"
+	cp -f "${source_theme_root_dir_path}/src/gtk/assets/assets${append_theme_color_name,,}"/*.png "${target_theme_dir_path}/gtk-4.0/assets"
+
+
+
+
+	if [ "${is_building_flat}" != "true" ]; then
+		if [ "${is_building_grey}" = "true" ]; then
+			util_debug_echo
+			util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-4.0/assets/window-assets"
+			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-4.0/assets/window-assets"
+		else
+			util_debug_echo
+			util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-4.0/assets/window-assets"
+			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets"/. "${target_theme_dir_path}/gtk-4.0/assets/window-assets"
+		fi
+	fi
+
+
+
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-4.0/assets/scalable"
+	cp -rf "${source_theme_root_dir_path}/src/gtk/assets/scalable"/. "${target_theme_dir_path}/gtk-4.0/assets/scalable"
+
+
+
+
+	if [ "${is_building_tweaks}" = "true" ]; then
+		util_debug_echo
+		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/4.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-4.0/gtk.css"
+		${scss_compile} "${source_theme_root_dir_path}/src/gtk/4.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-4.0/gtk.css"
+
+		util_debug_echo
+		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/4.0/gtk-dark.scss" "${target_theme_dir_path}/gtk-4.0/gtk-dark.css"
+		${scss_compile} "${source_theme_root_dir_path}/src/gtk/4.0/gtk-dark.scss" "${target_theme_dir_path}/gtk-4.0/gtk-dark.css"
+	else
+		util_debug_echo
+		util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/4.0/gtk${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gtk-4.0/gtk.css"
+		cp -f "${source_theme_root_dir_path}/src/gtk/4.0/gtk${append_theme_bright_name,,}.css" "${target_theme_dir_path}/gtk-4.0/gtk.css"
+
+		util_debug_echo
+		util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/4.0/gtk-dark.css" "${target_theme_dir_path}/gtk-4.0/gtk-dark.css"
+		cp -f "${source_theme_root_dir_path}/src/gtk/4.0/gtk-dark.css" "${target_theme_dir_path}/gtk-4.0/gtk-dark.css"
+	fi
+
+
+
+
+	util_debug_echo
+	util_debug_echo cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-4.0/thumbnail.png"
+	cp -f "${source_theme_root_dir_path}/src/gtk/assets/thumbnails/thumbnail${append_theme_bright_name,,}${append_theme_color_name,,}.png" "${target_theme_dir_path}/gtk-4.0/thumbnail.png"
 
 
 
