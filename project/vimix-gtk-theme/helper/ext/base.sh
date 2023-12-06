@@ -218,6 +218,9 @@ base_var_init () {
 	readonly THE_BUILDING_TWEAKS="false"
 	readonly THE_BUILDING_FLAT="false"
 	readonly THE_BUILDING_GREY="false"
+	readonly THE_BUILDING_MIX="false"
+	readonly THE_BUILDING_TRANSLUCENT="false"
+
 
 
 	##
@@ -469,6 +472,8 @@ base_var_dump () {
 	util_debug_echo "THE_BUILDING_TWEAKS=${THE_BUILDING_TWEAKS}"
 	util_debug_echo "THE_BUILDING_FLAT=${THE_BUILDING_FLAT}"
 	util_debug_echo "THE_BUILDING_GREY=${THE_BUILDING_GREY}"
+	util_debug_echo "THE_BUILDING_MIX=${THE_BUILDING_MIX}"
+	util_debug_echo "THE_BUILDING_TRANSLUCENT=${THE_BUILDING_TRANSLUCENT}"
 	util_debug_echo
 
 
