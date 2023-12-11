@@ -10,4 +10,4 @@ parent: Project
 
 | Project | Source |
 | --- | --- |
-| [vimix-icon-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-gtk-theme) | [Source](https://github.com/vinceliuice/vimix-icon-theme) |
+| [vimix-icon-theme](https://github.com/samwhelp/theme-factory-vimix/tree/main/project/vimix-icon-theme) | [Source](https://github.com/vinceliuice/vimix-icon-theme) |
