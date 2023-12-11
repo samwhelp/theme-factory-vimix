@@ -84,7 +84,7 @@ mod_theme_build_core () {
 	local theme_size_name="${6}"
 
 
-	if [ "${theme_color_name}" = "standard" ]; then
+	if [[ "${theme_color_name}" == "standard" ]]; then
 		theme_color_name=""
 	fi
 
@@ -164,7 +164,7 @@ mod_theme_build_core () {
 	## Remove Old Theme Dir
 	##
 
-	if [ -d "${target_theme_dir_path}" ]; then
+	if [[ -d "${target_theme_dir_path}" ]]; then
 		util_error_echo
 		util_error_echo rm -rf "${target_theme_dir_path}"
 		rm -rf "${target_theme_dir_path}"
@@ -209,7 +209,7 @@ mod_theme_build_core () {
 
 	local key="Inherits"
 	local val="Papirus${append_theme_bright_name},Numix-Circle${append_theme_bright_name},Adwaita,gnome,hicolor"
-	if [ "${theme_bright_name}" = "dark" ]; then
+	if [[ "${theme_bright_name}" == "dark" ]]; then
 		val="Papirus-Dark,Numix-Circle,Adwaita,gnome,hicolor"
 	else
 		val="Papirus-Light,Numix-Circle-Light,Adwaita,gnome,hicolor"
@@ -227,7 +227,7 @@ mod_theme_build_core () {
 	## Dark or Light
 	##
 
-	if [ "${theme_bright_name}" = "dark" ]; then
+	if [[ "${theme_bright_name}" == "dark" ]]; then
 		## Dark
 
 		## base_theme_dir_path: dark-theme link to light-theme
@@ -267,7 +267,7 @@ mod_theme_build_core () {
 		## Light
 		cp -r "${source_theme_root_dir_path}"/src/{16,22,24,32,scalable,symbolic} "${target_theme_dir_path}"
 		cp -r "${source_theme_root_dir_path}"/links/{16,22,24,32,scalable,symbolic} "${target_theme_dir_path}"
-		if [ -n "${theme_color_name}" ]; then
+		if [[ -n "${theme_color_name}" ]]; then
 			install -m644 "${source_theme_root_dir_path}/src/colors/color${append_theme_color_name,,}/"*.svg "${target_theme_dir_path}/scalable/places"
 		fi
 
