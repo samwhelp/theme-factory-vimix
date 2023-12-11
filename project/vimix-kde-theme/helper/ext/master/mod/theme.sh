@@ -320,13 +320,35 @@ mod_theme_build_core () {
 	util_debug_echo cp -rf "${source_kvantum_theme_root_dir_path}"/* "${target_kvantum_theme_root_dir_path}"
 	cp -rf "${source_kvantum_theme_root_dir_path}"/* "${target_kvantum_theme_root_dir_path}"
 
+
 	if [[ "${real_theme_color_name,,}" == "amethyst" ]]; then
+
 		echo 1
 	fi
 
+
 	if [[ "${real_theme_color_name,,}" == "beryl" ]]; then
-		echo 2
+		util_debug_echo
+		util_debug_echo cp -rf "${source_kvantum_theme_root_dir_path}/VimixDoder"/. "${target_kvantum_theme_root_dir_path}/VimixBeryl"
+		cp -rf "${source_kvantum_theme_root_dir_path}/VimixDoder"/. "${target_kvantum_theme_root_dir_path}/VimixBeryl"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoder.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBeryl.kvconfig"
+		mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoder.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBeryl.kvconfig"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoderDark.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBerylDark.kvconfig"
+		mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoderDark.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBerylDark.kvconfig"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoder.svg" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBeryl.svg"
+		mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoder.svg" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBeryl.svg"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoderDark.svg" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBerylDark.svg"
+		mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoderDark.svg" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBerylDark.svg"
 	fi
+
 
 	if [[ "${real_theme_color_name,,}" == "jade" ]]; then
 		echo 3
