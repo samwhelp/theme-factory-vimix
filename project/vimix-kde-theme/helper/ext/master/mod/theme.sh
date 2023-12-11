@@ -84,8 +84,12 @@ mod_theme_build_core () {
 	local theme_size_name="${6}"
 
 
-	if [ "${theme_color_name}" = "standard" ]; then
+	if [[ "${theme_color_name}" == "standard" ]]; then
 		theme_color_name=""
+	fi
+
+	if [[ "${theme_bright_name}" == "standard" ]]; then
+		theme_bright_name=""
 	fi
 
 
