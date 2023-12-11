@@ -193,7 +193,7 @@ base_var_init () {
 	## ## Master Path / Source
 	##
 
-	THE_SOURCE_THEME_ROOT_DIR_NAME="vimix-icon-theme"
+	THE_SOURCE_THEME_ROOT_DIR_NAME="vimix-kde-theme"
 	THE_SOURCE_THEME_ROOT_DIR_PATH="${THE_MASTER_ASSET_DIR_PATH}/${THE_SOURCE_THEME_ROOT_DIR_NAME}"
 
 

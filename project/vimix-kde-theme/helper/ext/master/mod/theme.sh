@@ -71,7 +71,7 @@ mod_theme_build_core () {
 
 
 	local source_theme_dir_path="${source_theme_root_dir_path}"
-
+	local target_overlay_dir_path="${target_theme_root_dir_path}/overlay"
 
 	##
 	## Vimix-Ruby-Dark-Compact
@@ -117,6 +117,20 @@ mod_theme_build_core () {
 	local target_cursor_theme_name="Vimix-Cursor"
 
 
+
+
+
+	local source_aurorae_theme_root_dir_path="${source_theme_root_dir_path}/aurorae"
+	local target_aurorae_theme_root_dir_path="${target_overlay_dir_path}/usr/share/aurorae/themes"
+
+
+	local source_color_schemes_root_dir_path="${source_theme_root_dir_path}/color-schemes"
+	local target_color_schemes_root_dir_path="${target_overlay_dir_path}/usr/share/color-schemes"
+
+
+
+
+
 	util_debug_echo "asset_root_dir_path=${asset_root_dir_path}"
 
 	util_debug_echo "source_theme_root_dir_path=${source_theme_root_dir_path}"
@@ -124,6 +138,7 @@ mod_theme_build_core () {
 
 
 	util_debug_echo "source_theme_dir_path=${source_theme_root_dir_path}"
+	util_debug_echo "target_overlay_dir_path=${target_overlay_dir_path}"
 
 
 	util_debug_echo "theme_main_name=${theme_main_name}"
@@ -155,62 +170,59 @@ mod_theme_build_core () {
 
 
 
+
+
+
+	util_debug_echo "source_aurorae_theme_root_dir_path=${source_aurorae_theme_root_dir_path}"
+	util_debug_echo "target_aurorae_theme_root_dir_path=${target_aurorae_theme_root_dir_path}"
+
+
+	util_debug_echo "source_color_schemes_root_dir_path=${source_color_schemes_root_dir_path}"
+	util_debug_echo "target_color_schemes_root_dir_path=${target_color_schemes_root_dir_path}"
+
+
+
+
 	#################
 	## Build Start ##
 	#################
 
 
 	##
-	## Remove Old Theme Dir
+	## aurorae_theme
 	##
 
-	if [ -d "${target_theme_dir_path}" ]; then
-		util_error_echo
-		util_error_echo rm -rf "${target_theme_dir_path}"
-		rm -rf "${target_theme_dir_path}"
+	util_error_echo
+	util_error_echo mkdir -p "${target_aurorae_theme_root_dir_path}"
+	mkdir -p "${target_aurorae_theme_root_dir_path}"
+
+	if [[ ${append_theme_bright_name} != "-Light" ]]; then
+		local source_aurorae_theme_dir_path="${source_aurorae_theme_root_dir_path}/${real_theme_main_name}${append_theme_color_name}"
+		local target_aurorae_theme_dir_path="${target_aurorae_theme_root_dir_path}/${real_theme_main_name}${append_theme_color_name}"
+	else
+		local source_aurorae_theme_dir_path="${source_aurorae_theme_root_dir_path}/${real_theme_main_name}-Light"
+		local target_aurorae_theme_dir_path="${target_aurorae_theme_root_dir_path}/${real_theme_main_name}-Light"
 	fi
 
-
-	##
-	## Build Theme Dir
-	##
-
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}"
-	mkdir -p "${target_theme_dir_path}"
+	util_error_echo cp -rf "${source_aurorae_theme_dir_path}"/. "${target_aurorae_theme_dir_path}"
+	cp -rf "${source_aurorae_theme_dir_path}"/. "${target_aurorae_theme_dir_path}"
 
 
 	##
-	## README.md
+	## color_schemes
 	##
 
 	util_error_echo
-	util_error_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
-	install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
+	util_error_echo mkdir -p "${target_color_schemes_root_dir_path}"
+	mkdir -p "${target_color_schemes_root_dir_path}"
+
+	local source_color_schemes_dir_path="${source_color_schemes_root_dir_path}/${real_theme_main_name}${real_theme_bright_name}${real_theme_color_name}.colors"
+	local target_color_schemes_dir_path="${target_color_schemes_root_dir_path}/${real_theme_main_name}${real_theme_bright_name}${real_theme_color_name}.colors"
+
+	util_error_echo install -Dm644 "${source_color_schemes_dir_path}" "${target_color_schemes_dir_path}"
+	install -Dm644 "${source_color_schemes_dir_path}" "${target_color_schemes_dir_path}"
 
 
-	##
-	## index.theme
-	##
-
-	util_error_echo
-	util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
-
-
-cat > "${target_theme_dir_path}/index.theme" << __EOF__
-[Desktop Entry]
-Type=X-GNOME-Metatheme
-Name=${target_theme_name}
-Comment=Clean Gtk+ theme based on Material Design
-Encoding=UTF-8
-
-[X-GNOME-Metatheme]
-GtkTheme=${target_gtk_theme_name}
-MetacityTheme=${target_metacity_theme_name}
-IconTheme=${target_icon_theme_name}
-CursorTheme=${target_cursor_theme_name}
-ButtonLayout=menu:minimize,maximize,close
-__EOF__
 
 	return 0
 }
