@@ -341,6 +341,10 @@ mod_theme_build_core () {
 		util_debug_echo
 		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethystDark.svg"
 		mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethystDark.svg"
+
+		util_debug_echo
+		util_debug_echo sed -i "s/#f0544c/#ab47bc/g" "${target_kvantum_theme_root_dir_path}/VimixAmethyst"/*
+		sed -i "s/#f0544c/#ab47bc/g" "${target_kvantum_theme_root_dir_path}/VimixAmethyst"/*
 	fi
 
 
@@ -364,6 +368,10 @@ mod_theme_build_core () {
 		util_debug_echo
 		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoderDark.svg" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBerylDark.svg"
 		mv "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixDoderDark.svg" "${target_kvantum_theme_root_dir_path}/VimixBeryl/VimixBerylDark.svg"
+
+		util_debug_echo
+		util_debug_echo sed -i "s/#f0544c/#ab47bc/g" "${target_kvantum_theme_root_dir_path}/VimixBeryl"/*
+		sed -i "s/#4285f4/#2eb398/g" "${target_kvantum_theme_root_dir_path}/VimixBeryl"/*
 	fi
 
 
@@ -387,6 +395,10 @@ mod_theme_build_core () {
 		util_debug_echo
 		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJadeDark.svg"
 		mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJadeDark.svg"
+
+		util_debug_echo
+		util_debug_echo sed -i "s/#f0544c/#86BE43/g" "${target_kvantum_theme_root_dir_path}/VimixJade"/*
+		sed -i "s/#f0544c/#86BE43/g" "${target_kvantum_theme_root_dir_path}/VimixJade"/*
 	fi
 
 
