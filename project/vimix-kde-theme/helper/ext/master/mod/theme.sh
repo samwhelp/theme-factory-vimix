@@ -124,8 +124,8 @@ mod_theme_build_core () {
 	local target_aurorae_theme_root_dir_path="${target_overlay_dir_path}/usr/share/aurorae/themes"
 
 
-	local source_color_schemes_root_dir_path="${source_theme_root_dir_path}/color-schemes"
-	local target_color_schemes_root_dir_path="${target_overlay_dir_path}/usr/share/color-schemes"
+	local source_color_scheme_root_dir_path="${source_theme_root_dir_path}/color-schemes"
+	local target_color_scheme_root_dir_path="${target_overlay_dir_path}/usr/share/color-schemes"
 
 
 
@@ -177,8 +177,8 @@ mod_theme_build_core () {
 	util_debug_echo "target_aurorae_theme_root_dir_path=${target_aurorae_theme_root_dir_path}"
 
 
-	util_debug_echo "source_color_schemes_root_dir_path=${source_color_schemes_root_dir_path}"
-	util_debug_echo "target_color_schemes_root_dir_path=${target_color_schemes_root_dir_path}"
+	util_debug_echo "source_color_scheme_root_dir_path=${source_color_scheme_root_dir_path}"
+	util_debug_echo "target_color_scheme_root_dir_path=${target_color_scheme_root_dir_path}"
 
 
 
@@ -192,8 +192,8 @@ mod_theme_build_core () {
 	## aurorae_theme
 	##
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_aurorae_theme_root_dir_path}"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_aurorae_theme_root_dir_path}"
 	mkdir -p "${target_aurorae_theme_root_dir_path}"
 
 	if [[ ${append_theme_bright_name} != "-Light" ]]; then
@@ -204,23 +204,25 @@ mod_theme_build_core () {
 		local target_aurorae_theme_dir_path="${target_aurorae_theme_root_dir_path}/${real_theme_main_name}-Light"
 	fi
 
-	util_error_echo cp -rf "${source_aurorae_theme_dir_path}"/. "${target_aurorae_theme_dir_path}"
+	util_debug_echo
+	util_debug_echo cp -rf "${source_aurorae_theme_dir_path}"/. "${target_aurorae_theme_dir_path}"
 	cp -rf "${source_aurorae_theme_dir_path}"/. "${target_aurorae_theme_dir_path}"
 
 
 	##
-	## color_schemes
+	## color_scheme
 	##
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_color_schemes_root_dir_path}"
-	mkdir -p "${target_color_schemes_root_dir_path}"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_color_scheme_root_dir_path}"
+	mkdir -p "${target_color_scheme_root_dir_path}"
 
-	local source_color_schemes_dir_path="${source_color_schemes_root_dir_path}/${real_theme_main_name}${real_theme_bright_name}${real_theme_color_name}.colors"
-	local target_color_schemes_dir_path="${target_color_schemes_root_dir_path}/${real_theme_main_name}${real_theme_bright_name}${real_theme_color_name}.colors"
+	local source_color_scheme_dir_path="${source_color_scheme_root_dir_path}/${real_theme_main_name}${real_theme_bright_name}${real_theme_color_name}.colors"
+	local target_color_scheme_dir_path="${target_color_scheme_root_dir_path}/${real_theme_main_name}${real_theme_bright_name}${real_theme_color_name}.colors"
 
-	util_error_echo install -Dm644 "${source_color_schemes_dir_path}" "${target_color_schemes_dir_path}"
-	install -Dm644 "${source_color_schemes_dir_path}" "${target_color_schemes_dir_path}"
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_color_scheme_dir_path}" "${target_color_scheme_dir_path}"
+	install -Dm644 "${source_color_scheme_dir_path}" "${target_color_scheme_dir_path}"
 
 
 
@@ -288,7 +290,7 @@ mod_theme_build_all () {
 
 mod_tmp_clean () {
 
-	util_error_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
+	util_debug_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
 	rm -rf "${THE_MASTER_TMP_DIR_PATH}"
 
 	return 0
@@ -306,7 +308,7 @@ mod_tmp_clean () {
 
 
 mod_build_essential () {
-	util_error_echo "mod_build_essential: **Do Nothing**"
+	util_debug_echo "mod_build_essential: **Do Nothing**"
 }
 
 
