@@ -165,8 +165,8 @@ mod_theme_build_core () {
 	##
 
 	if [[ -d "${target_theme_dir_path}" ]]; then
-		util_error_echo
-		util_error_echo rm -rf "${target_theme_dir_path}"
+		util_debug_echo
+		util_debug_echo rm -rf "${target_theme_dir_path}"
 		rm -rf "${target_theme_dir_path}"
 	fi
 
@@ -175,8 +175,8 @@ mod_theme_build_core () {
 	## Build Theme Dir
 	##
 
-	util_error_echo
-	util_error_echo mkdir -p "${target_theme_dir_path}"
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_theme_dir_path}"
 	mkdir -p "${target_theme_dir_path}"
 
 
@@ -184,8 +184,8 @@ mod_theme_build_core () {
 	## README.md
 	##
 
-	util_error_echo
-	util_error_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
+	util_debug_echo
+	util_debug_echo install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
 	install -Dm644 "${asset_root_dir_path}/README.md" "${target_theme_dir_path}/README.md"
 
 
@@ -193,11 +193,11 @@ mod_theme_build_core () {
 	## Create index.theme
 	##
 
-	##util_error_echo
-	##util_error_echo "Create File: ${target_theme_dir_path}/index.theme"
+	##util_debug_echo
+	##util_debug_echo "Create File: ${target_theme_dir_path}/index.theme"
 
-	util_error_echo
-	util_error_echo install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
+	util_debug_echo
+	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
 	install -Dm644 "${source_theme_root_dir_path}/src/index.theme" "${target_theme_dir_path}/index.theme"
 
 	sed -i "s/%NAME%/${target_theme_name}/g" "${target_theme_dir_path}/index.theme"
@@ -358,7 +358,7 @@ mod_theme_build_all () {
 
 mod_tmp_clean () {
 
-	util_error_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
+	util_debug_echo "rm -rf ${THE_MASTER_TMP_DIR_PATH}"
 	rm -rf "${THE_MASTER_TMP_DIR_PATH}"
 
 	return 0
@@ -376,7 +376,7 @@ mod_tmp_clean () {
 
 
 mod_build_essential () {
-	util_error_echo "mod_build_essential: **Do Nothing**"
+	util_debug_echo "mod_build_essential: **Do Nothing**"
 }
 
 
