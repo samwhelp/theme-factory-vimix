@@ -84,15 +84,15 @@ mod_theme_build_core () {
 	local theme_size_name="${6}"
 
 
-	if [ "${theme_color_name}" = "standard" ]; then
+	if [[ "${theme_color_name}" == "standard" ]]; then
 		theme_color_name=""
 	fi
 
-	if [ "${theme_bright_name}" = "standard" ]; then
+	if [[ "${theme_bright_name}" == "standard" ]]; then
 		theme_bright_name=""
 	fi
 
-	if [ "${theme_size_name}" = "standard" ]; then
+	if [[ "${theme_size_name}" == "standard" ]]; then
 		theme_size_name=""
 	fi
 
@@ -119,7 +119,7 @@ mod_theme_build_core () {
 	local target_metacity_theme_name="${target_theme_name}"
 	local target_icon_theme_name="${real_theme_main_name}${append_theme_color_name}${append_theme_bright_name}"
 	## fix for [birght=standard]
-	if [ -z "${theme_bright_name}" ]; then
+	if [[ -z "${theme_bright_name}" ]]; then
 		target_icon_theme_name="${real_theme_main_name}${append_theme_color_name}-Light"
 	fi
 	local target_cursor_theme_name="Vimix-Cursor"
@@ -128,13 +128,13 @@ mod_theme_build_core () {
 
 
 	local append_else_dark
-	if [ "${theme_bright_name}" = 'dark' ]; then
+	if [[ "${theme_bright_name}" == 'dark' ]]; then
 		append_else_dark="$(mod_append_theme_bright_name "dark")"
 	fi
 
 
 	local append_else_light
-	if [ "${theme_bright_name}" != 'dark' ]; then
+	if [[ "${theme_bright_name}" != 'dark' ]]; then
 		append_else_light="$(mod_append_theme_bright_name "light")"
 	fi
 
@@ -245,7 +245,7 @@ mod_theme_build_core () {
 	## Remove Old Theme Dir
 	##
 
-	if [ -d "${target_theme_dir_path}" ]; then
+	if [[ -d "${target_theme_dir_path}" ]]; then
 		util_debug_echo
 		util_debug_echo rm -rf "${target_theme_dir_path}"
 		rm -rf "${target_theme_dir_path}"
@@ -359,8 +359,8 @@ __EOF__
 
 
 
-	if [ "${is_building_flat}" != "true" ]; then
-		if [ "${is_building_grey}" = "true" ]; then
+	if [[ "${is_building_flat}" != "true" ]]; then
+		if [[ "${is_building_grey}" == "true" ]]; then
 			util_debug_echo
 			util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
 			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-3.0/assets/window-assets"
@@ -381,7 +381,7 @@ __EOF__
 
 
 
-	if [ "${is_building_tweaks}" = "true" ]; then
+	if [[ "${is_building_tweaks}" == "true" ]]; then
 		util_debug_echo
 		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-3.0/gtk.css"
 		${scss_compile} "${source_theme_root_dir_path}/src/gtk/3.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-3.0/gtk.css"
@@ -432,8 +432,8 @@ __EOF__
 
 
 
-	if [ "${is_building_flat}" != "true" ]; then
-		if [ "${is_building_grey}" = "true" ]; then
+	if [[ "${is_building_flat}" != "true" ]]; then
+		if [[ "${is_building_grey}" == "true" ]]; then
 			util_debug_echo
 			util_debug_echo cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-4.0/assets/window-assets"
 			cp -rf "${source_theme_root_dir_path}/src/gtk/assets/window-assets-contrast"/. "${target_theme_dir_path}/gtk-4.0/assets/window-assets"
@@ -454,7 +454,7 @@ __EOF__
 
 
 
-	if [ "${is_building_tweaks}" = "true" ]; then
+	if [[ "${is_building_tweaks}" == "true" ]]; then
 		util_debug_echo
 		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gtk/4.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-4.0/gtk.css"
 		${scss_compile} "${source_theme_root_dir_path}/src/gtk/4.0/gtk${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gtk-4.0/gtk.css"
@@ -527,7 +527,7 @@ __EOF__
 
 
 
-	if [ "${is_building_tweaks}" = "true" ]; then
+	if [[ "${is_building_tweaks}" == "true" ]]; then
 		util_debug_echo
 		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/gnome-shell/shell-${gnome_shell_version}/gnome-shell${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gnome-shell/gnome-shell.css"
 		${scss_compile} "${source_theme_root_dir_path}/src/gnome-shell/shell-${gnome_shell_version}/gnome-shell${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/gnome-shell/gnome-shell.css"
@@ -608,7 +608,7 @@ __EOF__
 	util_debug_echo install -Dm644 "${source_theme_root_dir_path}/src/xfwm4/themerc${append_theme_bright_name,,}" "${target_theme_dir_path}/xfwm4/themerc"
 	install -Dm644 "${source_theme_root_dir_path}/src/xfwm4/themerc${append_theme_bright_name,,}" "${target_theme_dir_path}/xfwm4/themerc"
 
-	if [ "${is_building_grey}" != "true" ]; then
+	if [[ "${is_building_grey}" != "true" ]]; then
 		util_debug_echo
 		util_debug_echo cp -rf "${source_theme_root_dir_path}/src/xfwm4/assets${append_theme_bright_name,,}${append_theme_color_name,,}"/*png "${target_theme_dir_path}/xfwm4"
 		cp -rf "${source_theme_root_dir_path}/src/xfwm4/assets${append_theme_bright_name,,}${append_theme_color_name,,}"/*png "${target_theme_dir_path}/xfwm4"
@@ -672,7 +672,7 @@ __EOF__
 	mkdir -p "${target_theme_dir_path}/cinnamon/assets"
 
 
-	if [ "${is_building_tweaks}" = "true" ]; then
+	if [[ "${is_building_tweaks}" == "true" ]]; then
 		util_debug_echo
 		util_debug_echo ${scss_compile} "${source_theme_root_dir_path}/src/cinnamon/cinnamon${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/cinnamon/cinnamon.css"
 		${scss_compile} "${source_theme_root_dir_path}/src/cinnamon/cinnamon${append_theme_bright_name,,}.scss" "${target_theme_dir_path}/cinnamon/cinnamon.css"
