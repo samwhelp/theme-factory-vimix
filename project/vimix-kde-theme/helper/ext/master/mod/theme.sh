@@ -120,9 +120,14 @@ mod_theme_build_core () {
 
 
 
+	local source_global_theme_root_dir_path="${source_theme_root_dir_path}/plasma/look-and-feel"
+	local target_global_theme_root_dir_path="${target_overlay_dir_path}/usr/share/plasma/look-and-feel"
+
+	local source_plasma_theme_root_dir_path="${source_theme_root_dir_path}/plasma/desktoptheme"
+	local target_plasma_theme_root_dir_path="${target_overlay_dir_path}/usr/share/plasma/desktoptheme"
+
 	local source_aurorae_theme_root_dir_path="${source_theme_root_dir_path}/aurorae"
 	local target_aurorae_theme_root_dir_path="${target_overlay_dir_path}/usr/share/aurorae/themes"
-
 
 	local source_color_scheme_root_dir_path="${source_theme_root_dir_path}/color-schemes"
 	local target_color_scheme_root_dir_path="${target_overlay_dir_path}/usr/share/color-schemes"
@@ -171,11 +176,14 @@ mod_theme_build_core () {
 
 
 
+	util_debug_echo "source_global_theme_root_dir_path=${source_global_theme_root_dir_path}"
+	util_debug_echo "target_global_theme_root_dir_path=${target_global_theme_root_dir_path}"
 
+	util_debug_echo "source_plasma_theme_root_dir_path=${source_plasma_theme_root_dir_path}"
+	util_debug_echo "target_plasma_theme_root_dir_path=${target_plasma_theme_root_dir_path}"
 
 	util_debug_echo "source_aurorae_theme_root_dir_path=${source_aurorae_theme_root_dir_path}"
 	util_debug_echo "target_aurorae_theme_root_dir_path=${target_aurorae_theme_root_dir_path}"
-
 
 	util_debug_echo "source_color_scheme_root_dir_path=${source_color_scheme_root_dir_path}"
 	util_debug_echo "target_color_scheme_root_dir_path=${target_color_scheme_root_dir_path}"
@@ -189,6 +197,63 @@ mod_theme_build_core () {
 
 
 	##
+	## global_theme
+	##
+
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_global_theme_root_dir_path}"
+	mkdir -p "${target_global_theme_root_dir_path}"
+
+	local source_global_theme_dir_path="${source_global_theme_root_dir_path}/com.github.vinceliuice.${real_theme_main_name}${append_theme_bright_name}${append_theme_color_name}"
+	local target_global_theme_dir_path="${target_global_theme_root_dir_path}/com.github.vinceliuice.${real_theme_main_name}${append_theme_bright_name}${append_theme_color_name}"
+
+	if [[ -d "${source_global_theme_dir_path}" ]]; then
+		util_debug_echo
+		util_debug_echo cp -rf "${source_global_theme_dir_path}"/. "${target_global_theme_dir_path}"
+		cp -rf "${source_global_theme_dir_path}"/. "${target_global_theme_dir_path}"
+	fi
+
+
+	##
+	## plasma_theme
+	##
+
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_plasma_theme_root_dir_path}"
+	mkdir -p "${target_plasma_theme_root_dir_path}"
+
+	local source_plasma_theme_dir_path="${source_plasma_theme_root_dir_path}/${real_theme_main_name}${append_theme_bright_name}"
+	local target_plasma_theme_dir_path="${target_plasma_theme_root_dir_path}/${real_theme_main_name}${append_theme_bright_name}"
+
+	if [[ -d "${source_plasma_theme_dir_path}" ]]; then
+		util_debug_echo
+		util_debug_echo cp -rf "${source_plasma_theme_dir_path}"/. "${target_plasma_theme_dir_path}"
+		cp -rf "${source_plasma_theme_dir_path}"/. "${target_plasma_theme_dir_path}"
+	fi
+
+	if [[ "${append_theme_bright_name}" != "" ]]; then
+		util_debug_echo
+		util_debug_echo cp -rf "${source_plasma_theme_root_dir_path}/${real_theme_main_name}"/. "${target_plasma_theme_dir_path}"
+		cp -rf "${source_plasma_theme_root_dir_path}/${real_theme_main_name}"/. "${target_plasma_theme_dir_path}"
+
+		## Replace Name
+		##Name=Vimix-Dark
+		##sed -i 's/^Name=.*/Name=Vimix-Dark/g' "${target_plasma_theme_dir_path}/metadata.desktop"
+
+		local key="Name"
+		local val="${real_theme_main_name}${append_theme_bright_name}"
+
+		##local pattern="s/^${key}.*/${key}=\"${val}\"/g"
+		local pattern="s/^${key}.*/${key}=${val}/g"
+
+		util_error_echo
+		util_error_echo
+		sed -i "${pattern}" "${target_plasma_theme_dir_path}/metadata.desktop"
+
+	fi
+
+
+	##
 	## aurorae_theme
 	##
 
@@ -196,7 +261,7 @@ mod_theme_build_core () {
 	util_debug_echo mkdir -p "${target_aurorae_theme_root_dir_path}"
 	mkdir -p "${target_aurorae_theme_root_dir_path}"
 
-	if [[ ${append_theme_bright_name} != "-Light" ]]; then
+	if [[ "${append_theme_bright_name}" != "-Light" ]]; then
 		local source_aurorae_theme_dir_path="${source_aurorae_theme_root_dir_path}/${real_theme_main_name}${append_theme_color_name}"
 		local target_aurorae_theme_dir_path="${target_aurorae_theme_root_dir_path}/${real_theme_main_name}${append_theme_color_name}"
 	else
@@ -254,6 +319,17 @@ mod_theme_build_each () {
 
 mod_theme_build_all () {
 
+	local target_theme_root_dir_path="${OPT_TARGET_THEME_ROOT_DIR_PATH:=${THE_TARGET_THEME_ROOT_DIR_PATH}}"
+
+	if [[ -d "${target_theme_root_dir_path}" ]]; then
+		util_debug_echo
+		util_debug_echo rm -rf "${target_theme_root_dir_path}"
+		rm -rf "${target_theme_root_dir_path}"
+	fi
+
+
+
+
 	local target_theme_build_color_list=${OPT_TARGET_THEME_BUILD_COLOR_LIST[@]:=${THE_TARGET_THEME_BUILD_COLOR_LIST[@]}}
 	local target_theme_build_bright_list=${OPT_TARGET_THEME_BUILD_BRIGHT_LIST[@]:=${THE_TARGET_THEME_BUILD_BRIGHT_LIST[@]}}
 
@@ -272,6 +348,9 @@ mod_theme_build_all () {
 			mod_theme_build_each "${theme_main_name}" "${theme_color_name}" "${theme_bright_name}"
 		done
 	done
+
+
+
 
 	return 0
 }
