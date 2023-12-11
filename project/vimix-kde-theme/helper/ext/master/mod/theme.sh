@@ -258,8 +258,8 @@ mod_theme_build_core () {
 		##local pattern="s/^${key}.*/${key}=\"${val}\"/g"
 		local pattern="s/^${key}.*/${key}=${val}/g"
 
-		util_error_echo
-		util_error_echo
+		util_debug_echo
+		util_debug_echo sed -i "${pattern}" "${target_plasma_theme_dir_path}/metadata.desktop"
 		sed -i "${pattern}" "${target_plasma_theme_dir_path}/metadata.desktop"
 
 	fi
@@ -322,8 +322,25 @@ mod_theme_build_core () {
 
 
 	if [[ "${real_theme_color_name,,}" == "amethyst" ]]; then
+		util_debug_echo
+		util_debug_echo cp -rf "${source_kvantum_theme_root_dir_path}/VimixRuby"/. "${target_kvantum_theme_root_dir_path}/VimixAmethyst"
+		cp -rf "${source_kvantum_theme_root_dir_path}/VimixRuby"/. "${target_kvantum_theme_root_dir_path}/VimixAmethyst"
 
-		echo 1
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRuby.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethyst.kvconfig"
+		mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRuby.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethyst.kvconfig"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRubyDark.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethystDark.kvconfig"
+		mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRubyDark.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethystDark.kvconfig"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRuby.svg" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethyst.svg"
+		mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRuby.svg" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethyst.svg"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethystDark.svg"
+		mv "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixAmethyst/VimixAmethystDark.svg"
 	fi
 
 
@@ -351,7 +368,25 @@ mod_theme_build_core () {
 
 
 	if [[ "${real_theme_color_name,,}" == "jade" ]]; then
-		echo 3
+		util_debug_echo
+		util_debug_echo cp -rf "${source_kvantum_theme_root_dir_path}/VimixRuby"/. "${target_kvantum_theme_root_dir_path}/VimixJade"
+		cp -rf "${source_kvantum_theme_root_dir_path}/VimixRuby"/. "${target_kvantum_theme_root_dir_path}/VimixJade"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRuby.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJade.kvconfig"
+		mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRuby.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJade.kvconfig"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRubyDark.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJadeDark.kvconfig"
+		mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRubyDark.kvconfig" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJadeDark.kvconfig"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRuby.svg" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJade.svg"
+		mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRuby.svg" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJade.svg"
+
+		util_debug_echo
+		util_debug_echo mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJadeDark.svg"
+		mv "${target_kvantum_theme_root_dir_path}/VimixJade/VimixRubyDark.svg" "${target_kvantum_theme_root_dir_path}/VimixJade/VimixJadeDark.svg"
 	fi
 
 
