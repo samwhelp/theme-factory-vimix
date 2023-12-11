@@ -132,6 +132,11 @@ mod_theme_build_core () {
 	local source_color_scheme_root_dir_path="${source_theme_root_dir_path}/color-schemes"
 	local target_color_scheme_root_dir_path="${target_overlay_dir_path}/usr/share/color-schemes"
 
+	local source_kvantum_theme_root_dir_path="${source_theme_root_dir_path}/Kvantum"
+	local target_kvantum_theme_root_dir_path="${target_overlay_dir_path}/usr/share/Kvantum"
+
+	local source_wallpaper_root_dir_path="${source_theme_root_dir_path}/wallpaper"
+	local target_wallpaper_root_dir_path="${target_overlay_dir_path}/usr/share/wallpapers"
 
 
 
@@ -188,6 +193,11 @@ mod_theme_build_core () {
 	util_debug_echo "source_color_scheme_root_dir_path=${source_color_scheme_root_dir_path}"
 	util_debug_echo "target_color_scheme_root_dir_path=${target_color_scheme_root_dir_path}"
 
+	util_debug_echo "source_kvantum_theme_root_dir_path=${source_kvantum_theme_root_dir_path}"
+	util_debug_echo "target_kvantum_theme_root_dir_path=${target_kvantum_theme_root_dir_path}"
+
+	util_debug_echo "source_wallpaper_root_dir_path=${source_wallpaper_root_dir_path}"
+	util_debug_echo "target_wallpaper_root_dir_path=${target_wallpaper_root_dir_path}"
 
 
 
@@ -212,6 +222,8 @@ mod_theme_build_core () {
 		util_debug_echo cp -rf "${source_global_theme_dir_path}"/. "${target_global_theme_dir_path}"
 		cp -rf "${source_global_theme_dir_path}"/. "${target_global_theme_dir_path}"
 	fi
+
+
 
 
 	##
@@ -253,6 +265,8 @@ mod_theme_build_core () {
 	fi
 
 
+
+
 	##
 	## aurorae_theme
 	##
@@ -274,6 +288,8 @@ mod_theme_build_core () {
 	cp -rf "${source_aurorae_theme_dir_path}"/. "${target_aurorae_theme_dir_path}"
 
 
+
+
 	##
 	## color_scheme
 	##
@@ -288,6 +304,36 @@ mod_theme_build_core () {
 	util_debug_echo
 	util_debug_echo install -Dm644 "${source_color_scheme_dir_path}" "${target_color_scheme_dir_path}"
 	install -Dm644 "${source_color_scheme_dir_path}" "${target_color_scheme_dir_path}"
+
+
+
+
+	##
+	## kvantum_theme
+	##
+
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_kvantum_theme_root_dir_path}"
+	mkdir -p "${target_kvantum_theme_root_dir_path}"
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_kvantum_theme_root_dir_path}"/* "${target_kvantum_theme_root_dir_path}"
+	cp -rf "${source_kvantum_theme_root_dir_path}"/* "${target_kvantum_theme_root_dir_path}"
+
+
+
+
+	##
+	## wallpaper
+	##
+
+	util_debug_echo
+	util_debug_echo mkdir -p "${target_wallpaper_root_dir_path}"
+	mkdir -p "${target_wallpaper_root_dir_path}"
+
+	util_debug_echo
+	util_debug_echo cp -rf "${source_wallpaper_root_dir_path}"/Vimix* "${target_wallpaper_root_dir_path}"
+	cp -rf "${source_wallpaper_root_dir_path}"/Vimix* "${target_wallpaper_root_dir_path}"
 
 
 
