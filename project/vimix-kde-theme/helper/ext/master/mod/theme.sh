@@ -275,7 +275,7 @@ mod_theme_build_core () {
 	util_debug_echo mkdir -p "${target_aurorae_theme_root_dir_path}"
 	mkdir -p "${target_aurorae_theme_root_dir_path}"
 
-	if [[ "${append_theme_bright_name}" != "-Light" ]]; then
+	if [[ "${real_theme_bright_name,,}" != "light" ]]; then
 		local source_aurorae_theme_dir_path="${source_aurorae_theme_root_dir_path}/${real_theme_main_name}${append_theme_color_name}"
 		local target_aurorae_theme_dir_path="${target_aurorae_theme_root_dir_path}/${real_theme_main_name}${append_theme_color_name}"
 	else
@@ -320,7 +320,17 @@ mod_theme_build_core () {
 	util_debug_echo cp -rf "${source_kvantum_theme_root_dir_path}"/* "${target_kvantum_theme_root_dir_path}"
 	cp -rf "${source_kvantum_theme_root_dir_path}"/* "${target_kvantum_theme_root_dir_path}"
 
+	if [[ "${real_theme_color_name,,}" == "amethyst" ]]; then
+		echo 1
+	fi
 
+	if [[ "${real_theme_color_name,,}" == "beryl" ]]; then
+		echo 2
+	fi
+
+	if [[ "${real_theme_color_name,,}" == "jade" ]]; then
+		echo 3
+	fi
 
 
 	##
